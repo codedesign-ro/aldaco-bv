@@ -22,76 +22,79 @@
     body { background: var(--warm-white); color: var(--charcoal); font-family: var(--body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 
 ```
-/* ===== NAV ===== */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 60px;
-  background: rgba(250,250,247,0.97); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--rule);
-  transition: padding 0.4s ease;
-}
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(250,250,247,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); transition: padding 0.4s ease; }
 nav.scrolled { padding: 13px 60px; }
 .nav-left { display: flex; align-items: center; gap: 48px; }
-.nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: 0.04em; color: var(--charcoal); text-decoration: none; cursor: pointer; }
+.nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: 0.04em; color: var(--charcoal); cursor: pointer; }
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a {
-  font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--mid); text-decoration: none; position: relative; padding-bottom: 3px; transition: color 0.3s; cursor: pointer;
-}
+.nav-links a { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; position: relative; padding-bottom: 3px; transition: color 0.3s; cursor: pointer; }
 .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
 .nav-links a:hover { color: var(--charcoal); }
 .nav-links a:hover::after { width: 100%; }
 .nav-right { display: flex; align-items: center; gap: 20px; }
-.nav-cta { font-family: var(--sans); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 11px 24px; text-decoration: none; cursor: pointer; transition: background 0.3s; }
+.nav-cta { font-family: var(--sans); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 11px 24px; cursor: pointer; transition: background 0.3s; }
 .nav-cta:hover { background: var(--accent-dark); }
-
-/* Language switcher */
-.lang-switcher { display: flex; align-items: center; gap: 0; border: 1px solid var(--rule); overflow: hidden; }
+.lang-switcher { display: flex; align-items: center; border: 1px solid var(--rule); overflow: hidden; }
 .lang-btn { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 10px; border: none; border-right: 1px solid var(--rule); background: transparent; cursor: pointer; color: var(--light-mid); transition: background 0.2s, color 0.2s; }
 .lang-btn:last-child { border-right: none; }
 .lang-btn.active { background: var(--charcoal); color: var(--cream); }
 .lang-btn:hover:not(.active) { background: var(--cream); }
-
-/* Mobile toggle */
 .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 1100; }
 .nav-toggle .bar { display: block; width: 26px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
 .nav-toggle.open .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.open .bar:nth-child(2) { opacity: 0; }
 .nav-toggle.open .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile menu */
+/* MOBILE MENU */
 .mobile-menu { display: none; position: fixed; inset: 0; background: var(--charcoal); z-index: 1050; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { font-family: var(--serif); font-size: 34px; font-weight: 300; color: var(--cream); text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.07); width: 260px; text-align: center; cursor: pointer; transition: color 0.2s; }
 .mobile-menu a:hover { color: var(--accent); }
-.mobile-lang { display: flex; gap: 0; margin-top: 36px; border: 1px solid rgba(255,255,255,0.15); overflow: hidden; }
-.mobile-lang-btn { font-family: var(--sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 20px; border: none; background: transparent; cursor: pointer; color: rgba(245,240,232,0.5); transition: background 0.2s, color 0.2s; }
+.mobile-lang { display: flex; margin-top: 36px; border: 1px solid rgba(255,255,255,0.15); overflow: hidden; }
+.mobile-lang-btn { font-family: var(--sans); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 18px; border: none; border-right: 1px solid rgba(255,255,255,0.15); background: transparent; cursor: pointer; color: rgba(245,240,232,0.5); transition: background 0.2s, color 0.2s; }
+.mobile-lang-btn:last-child { border-right: none; }
 .mobile-lang-btn.active { background: var(--accent); color: var(--charcoal); }
 .mobile-cta { margin-top: 28px; font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); background: var(--accent); padding: 15px 36px; border: none; cursor: pointer; }
 
-/* ===== PAGES ===== */
+/* PAGES */
 .page { display: none; }
 .page.active { display: block; }
 
-/* ===== SHARED ===== */
+/* SHARED */
 section { padding: 110px 60px; }
 .section-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; }
 .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--accent); flex-shrink: 0; }
 .section-title { font-family: var(--serif); font-size: clamp(34px, 4vw, 56px); font-weight: 300; line-height: 1.12; color: var(--charcoal); margin-bottom: 22px; }
 .section-title em { font-style: italic; color: var(--accent-dark); }
 
-/* Buttons */
-.btn-primary { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 15px 34px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.3s; }
+/* BUTTONS */
+.btn-primary { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 15px 34px; border: none; cursor: pointer; display: inline-block; transition: background 0.3s; }
 .btn-primary:hover { background: var(--accent-dark); }
 .btn-secondary { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; transition: gap 0.3s; }
 .btn-secondary::after { content: '→'; font-size: 15px; }
 .btn-secondary:hover { gap: 16px; }
-.btn-dark { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 17px 38px; border: none; cursor: pointer; text-decoration: none; display: inline-block; white-space: nowrap; transition: background 0.3s; }
+.btn-dark { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 17px 38px; border: none; cursor: pointer; display: inline-block; white-space: nowrap; transition: background 0.3s; }
 .btn-dark:hover { background: var(--mid); }
 
-/* ===== HERO ===== */
+/* PHOTO PLACEHOLDERS */
+.photo-placeholder { position: relative; background: #DDD5C5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; overflow: hidden; }
+.photo-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(160,136,96,0.1) 28px, rgba(160,136,96,0.1) 29px); }
+.ph-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 24px; }
+.ph-icon { width: 52px; height: 52px; border: 2px solid var(--accent-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--accent-dark); }
+.ph-label { font-family: var(--sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); }
+.ph-dims { font-family: var(--body); font-size: 12px; color: var(--light-mid); margin-top: 2px; }
+.ph-tip { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--accent-dark); margin-top: 4px; max-width: 220px; line-height: 1.5; opacity: 0.8; }
+/* Dark background variant (for charcoal sections) */
+.ph-dark { background: rgba(255,255,255,0.05); }
+.ph-dark::before { background: repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(196,168,130,0.07) 28px, rgba(196,168,130,0.07) 29px); }
+.ph-dark .ph-icon { border-color: rgba(196,168,130,0.5); color: rgba(196,168,130,0.5); }
+.ph-dark .ph-label { color: rgba(196,168,130,0.6); }
+.ph-dark .ph-dims { color: rgba(245,240,232,0.3); }
+.ph-dark .ph-tip { color: rgba(196,168,130,0.5); }
+
+/* HERO */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 68px; }
 .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 100px 60px 80px; }
 .hero-eyebrow { font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 26px; opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
@@ -99,25 +102,26 @@ section { padding: 110px 60px; }
 .hero-h1 em { font-style: italic; color: var(--accent-dark); }
 .hero-sub { font-size: 17px; font-weight: 300; color: var(--light-mid); max-width: 430px; line-height: 1.8; margin-bottom: 46px; opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards; }
 .hero-ctas { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.8s forwards; }
-.hero-right { position: relative; overflow: hidden; background: linear-gradient(145deg, #E8E0D0 0%, #D4C9B5 40%, #C4B8A4 100%); display: flex; align-items: flex-end; padding: 60px; }
-.hero-stat { background: var(--warm-white); padding: 22px 30px; opacity: 0; animation: fadeUp 0.7s ease 1s forwards; }
+.hero-right { position: relative; overflow: hidden; min-height: 100%; }
+.hero-stat { position: absolute; bottom: 40px; left: 40px; z-index: 2; background: var(--warm-white); padding: 22px 30px; opacity: 0; animation: fadeUp 0.7s ease 1s forwards; }
 .hero-stat-num { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--charcoal); line-height: 1; }
 .hero-stat-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); margin-top: 5px; }
 
-/* ===== WHO ===== */
+/* WHO */
 .who-section { background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .who-section .section-label { color: var(--accent); }
 .who-section .section-label::before { background: var(--accent); }
 .who-section .section-title { color: var(--cream); }
 .who-body { font-size: 16px; font-weight: 300; color: rgba(245,240,232,0.72); line-height: 1.95; }
 .who-tagline { display: block; font-family: var(--serif); font-size: 21px; font-style: italic; color: var(--accent); margin-top: 22px; }
+.who-right-col { display: flex; flex-direction: column; gap: 2px; }
 .who-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
 .who-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 34px 26px; transition: background 0.3s; }
 .who-card:hover { background: rgba(196,168,130,0.1); }
 .who-card-num { font-family: var(--serif); font-size: 42px; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 7px; }
 .who-card-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.42); }
 
-/* ===== SERVICES HOME ===== */
+/* SERVICES HOME */
 .services-home { background: var(--warm-white); }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
 .svc-card { background: var(--cream); padding: 42px 34px; position: relative; overflow: hidden; transition: background 0.35s; }
@@ -130,7 +134,7 @@ section { padding: 110px 60px; }
 .svc-card-cta { background: var(--charcoal); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 42px 34px; gap: 20px; }
 .svc-card-cta p { font-family: var(--serif); font-size: 21px; font-style: italic; color: var(--cream); }
 
-/* ===== WHY ===== */
+/* WHY */
 .why-section { background: var(--cream); display: grid; grid-template-columns: 5fr 7fr; gap: 100px; align-items: start; }
 .why-tagline { font-family: var(--serif); font-size: 21px; font-style: italic; font-weight: 300; color: var(--accent-dark); margin-top: 28px; line-height: 1.5; }
 .why-list { margin-top: 22px; }
@@ -139,7 +143,7 @@ section { padding: 110px 60px; }
 .why-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
 .why-text { font-size: 15px; color: var(--mid); line-height: 1.7; }
 
-/* ===== PROCESS ===== */
+/* PROCESS */
 .process-section { background: var(--warm-white); }
 .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 52px; }
 .process-step { background: var(--cream); padding: 42px 30px; position: relative; }
@@ -149,16 +153,17 @@ section { padding: 110px 60px; }
 .process-title { font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--charcoal); margin-bottom: 10px; }
 .process-body { font-size: 14px; color: var(--light-mid); line-height: 1.8; }
 
-/* ===== CTA STRIP ===== */
+/* CTA STRIP */
 .cta-strip { background: var(--accent); padding: 80px 60px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .cta-strip-title { font-family: var(--serif); font-size: clamp(26px, 3vw, 42px); font-weight: 300; color: var(--charcoal); }
 
-/* ===== ABOUT ===== */
-.about-hero { padding: 170px 60px 100px; background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
-.about-hero .section-label { color: var(--accent); }
+/* ABOUT */
+.about-hero { padding: 170px 60px 100px; background: var(--charcoal); position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; overflow: hidden; }
+.about-hero .section-label { color: var(--accent); position: relative; z-index: 1; }
 .about-hero .section-label::before { background: var(--accent); }
-.about-hero .section-title { color: var(--cream); margin-bottom: 0; }
-.about-hero-right { font-size: 16px; font-weight: 300; color: rgba(245,240,232,0.68); line-height: 1.95; }
+.about-hero .section-title { color: var(--cream); margin-bottom: 0; position: relative; z-index: 1; }
+.about-hero-right { font-size: 16px; font-weight: 300; color: rgba(245,240,232,0.68); line-height: 1.95; position: relative; z-index: 1; }
+.about-hero-bg { position: absolute; inset: 0; z-index: 0; opacity: 0.15; }
 .about-body { background: var(--warm-white); display: grid; grid-template-columns: 5fr 7fr; gap: 100px; align-items: start; }
 .about-list { list-style: none; margin-top: 18px; }
 .about-list li { display: flex; align-items: center; gap: 14px; padding: 15px 0; border-bottom: 1px solid var(--rule); font-size: 15px; color: var(--mid); }
@@ -174,9 +179,10 @@ section { padding: 110px 60px; }
 .vision-icon { width: 28px; height: 28px; background: var(--accent); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; }
 .vision-text { font-size: 15px; color: var(--mid); padding-top: 3px; line-height: 1.7; }
 
-/* ===== SERVICES PAGE ===== */
-.services-page-hero { padding: 170px 60px 80px; background: var(--cream); }
-.services-page-hero p { font-size: 16px; color: var(--light-mid); line-height: 1.9; max-width: 500px; margin-top: 18px; }
+/* SERVICES PAGE */
+.services-page-hero { display: grid; grid-template-columns: 1fr 1fr; background: var(--cream); overflow: hidden; }
+.services-page-hero-left { padding: 170px 60px 80px; }
+.services-page-hero-left p { font-size: 16px; color: var(--light-mid); line-height: 1.9; max-width: 500px; margin-top: 18px; }
 .full-services { padding: 60px 60px 100px; background: var(--warm-white); }
 .full-svc-card { display: grid; grid-template-columns: 270px 1fr; background: var(--cream); margin-bottom: 2px; transition: background 0.3s; }
 .full-svc-card:hover { background: #EDE6D8; }
@@ -189,12 +195,13 @@ section { padding: 110px 60px; }
 .tag { font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); border: 1px solid var(--rule); padding: 5px 11px; }
 .svc-tagline { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--accent-dark); margin-top: 16px; }
 
-/* ===== PROJECTS ===== */
-.projects-hero { padding: 170px 60px 80px; background: var(--charcoal); }
-.projects-hero .section-label { color: var(--accent); }
+/* PROJECTS */
+.projects-hero { padding: 170px 60px 80px; background: var(--charcoal); position: relative; overflow: hidden; }
+.projects-hero .section-label { color: var(--accent); position: relative; z-index: 1; }
 .projects-hero .section-label::before { background: var(--accent); }
-.projects-hero .section-title { color: var(--cream); max-width: 560px; }
-.projects-hero-sub { font-size: 16px; color: rgba(245,240,232,0.52); max-width: 460px; margin-top: 18px; line-height: 1.8; }
+.projects-hero .section-title { color: var(--cream); max-width: 560px; position: relative; z-index: 1; }
+.projects-hero-sub { font-size: 16px; color: rgba(245,240,232,0.52); max-width: 460px; margin-top: 18px; line-height: 1.8; position: relative; z-index: 1; }
+.projects-hero-bg { position: absolute; inset: 0; z-index: 0; opacity: 0.15; }
 .proj-types-section { background: var(--cream); }
 .proj-types-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 38px; }
 .proj-type { background: var(--warm-white); padding: 34px 20px; transition: background 0.3s; }
@@ -204,19 +211,18 @@ section { padding: 110px 60px; }
 .proj-type-title { font-family: var(--serif); font-size: 19px; color: var(--charcoal); margin-bottom: 9px; transition: color 0.3s; }
 .proj-type-body { font-size: 13px; color: var(--light-mid); line-height: 1.7; transition: color 0.3s; }
 .gallery-section { background: var(--warm-white); padding: 60px 60px 100px; }
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 38px; }
-.gallery-card { aspect-ratio: 4/3; background: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-.gallery-icon { font-size: 34px; opacity: 0.22; }
-.gallery-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light-mid); }
-.commitment-section { background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.commitment-section .section-label { color: var(--accent); }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 38px; }
+.gallery-card { aspect-ratio: 4/3; }
+.commitment-section { background: var(--charcoal); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; overflow: hidden; }
+.commitment-section .section-label { color: var(--accent); position: relative; z-index: 1; }
 .commitment-section .section-label::before { background: var(--accent); }
-.commitment-section .section-title { color: var(--cream); }
-.commit-lines { display: flex; flex-direction: column; }
+.commitment-section .section-title { color: var(--cream); position: relative; z-index: 1; }
+.commit-bg { position: absolute; inset: 0; z-index: 0; opacity: 0.12; }
+.commit-lines { display: flex; flex-direction: column; position: relative; z-index: 1; }
 .commit-line { font-family: var(--serif); font-size: 23px; font-style: italic; font-weight: 300; color: rgba(245,240,232,0.38); padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.07); transition: color 0.3s, padding-left 0.3s; }
 .commit-line:hover { color: var(--accent); padding-left: 12px; }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .contact-hero { padding: 170px 60px 80px; background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
 .contact-hero-right { font-size: 16px; color: var(--mid); line-height: 1.95; font-weight: 300; }
 .contact-main { background: var(--warm-white); padding: 80px 60px; display: grid; grid-template-columns: 5fr 7fr; gap: 80px; }
@@ -246,7 +252,7 @@ section { padding: 110px 60px; }
 .contact-closing p:first-child { font-family: var(--serif); font-size: clamp(26px, 3vw, 44px); font-weight: 300; color: var(--charcoal); }
 .contact-closing p:last-child { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--accent-dark); margin-top: 7px; }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer { background: var(--charcoal); padding: 60px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-logo { font-family: var(--serif); font-size: 23px; font-weight: 400; color: var(--cream); margin-bottom: 10px; }
 .footer-logo span { color: var(--accent); }
@@ -259,15 +265,14 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
 .footer-bottom { background: var(--charcoal); padding: 18px 60px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between; }
 .footer-bottom-text { font-size: 12px; color: rgba(245,240,232,0.22); }
 
-/* ===== ANIMATION ===== */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   nav { padding: 16px 40px; } nav.scrolled { padding: 11px 40px; }
   section { padding: 80px 40px; }
   .hero { grid-template-columns: 1fr; }
-  .hero-right { height: 360px; }
+  .hero-right { height: 380px; min-height: 380px; }
   .hero-left { padding: 60px 40px; }
   .who-section { grid-template-columns: 1fr; gap: 44px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
@@ -277,14 +282,14 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
   .about-body { grid-template-columns: 1fr; gap: 36px; }
   .phil-grid { grid-template-columns: 1fr; }
   .vision-section { grid-template-columns: 1fr; }
-  .services-page-hero { padding: 148px 40px 80px; }
+  .services-page-hero { grid-template-columns: 1fr; }
+  .services-page-hero-left { padding: 148px 40px 60px; }
   .full-services { padding: 40px 40px 80px; }
   .full-svc-card { grid-template-columns: 1fr; }
   .full-svc-left { border-right: none; border-bottom: 1px solid var(--rule); }
   .projects-hero { padding: 148px 40px 80px; }
   .proj-types-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-section { padding: 40px 40px 80px; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
   .commitment-section { grid-template-columns: 1fr; }
   .contact-hero { grid-template-columns: 1fr; padding: 148px 40px 60px; }
   .contact-main { grid-template-columns: 1fr; padding: 60px 40px; }
@@ -308,7 +313,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
   footer { grid-template-columns: 1fr; }
   .footer-bottom { padding: 12px 22px; flex-direction: column; gap: 4px; }
   .about-hero { padding: 110px 22px 60px; }
-  .services-page-hero { padding: 110px 22px 60px; }
+  .services-page-hero-left { padding: 110px 22px 60px; }
   .projects-hero { padding: 110px 22px 60px; }
   .contact-hero { padding: 110px 22px 60px; }
   .cta-strip { padding: 56px 22px; }
@@ -321,7 +326,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
 </head>
 <body>
 
-<!-- ====== NAV ====== -->
+<!-- NAV -->
 
 <nav id="mainNav">
   <div class="nav-left">
@@ -347,7 +352,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
   </button>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- MOBILE MENU -->
 
 <div class="mobile-menu" id="mobileMenu">
   <a onclick="showPage('home');closeMobileMenu()" data-i18n="nav.home">Home</a>
@@ -370,13 +375,19 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
     <div class="hero-left">
       <p class="hero-eyebrow" data-i18n="home.eyebrow">Interieur Renovatie België</p>
       <h1 class="hero-h1" data-i18n="home.h1">Interieur<br>Renovatie,<br><em>Vakkundig.</em></h1>
-      <p class="hero-sub" data-i18n="home.sub">Hoogwaardige interieurRenovaties in België — ontworpen met precisie, uitgevoerd met vakmanschap.</p>
+      <p class="hero-sub" data-i18n="home.sub">Hoogwaardige interieur renovaties in België — ontworpen met precisie, uitgevoerd met vakmanschap.</p>
       <div class="hero-ctas">
         <span class="btn-primary" onclick="showPage('contact')" data-i18n="home.cta1">Gratis consultatie aanvragen</span>
         <span class="btn-secondary" onclick="showPage('projects')" data-i18n="home.cta2">Onze projecten bekijken</span>
       </div>
     </div>
-    <div class="hero-right">
+    <div class="hero-right photo-placeholder">
+      <div class="ph-inner">
+        <div class="ph-icon">&#128247;</div>
+        <div class="ph-label" data-i18n="ph.hero">Hero Foto</div>
+        <div class="ph-dims">1200 &times; 900 px</div>
+        <div class="ph-tip" data-i18n="ph.hero.tip">Uw beste afgewerkte project — badkamer, keuken of woonkamer</div>
+      </div>
       <div class="hero-stat">
         <div class="hero-stat-num">100%</div>
         <div class="hero-stat-label" data-i18n="home.stat">Premium Afwerking</div>
@@ -388,16 +399,23 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
     <div>
       <p class="section-label" data-i18n="home.who.label">Wie zijn wij</p>
       <h2 class="section-title" data-i18n="home.who.title">Gebouwd op <em>Precisie</em><br>&amp; Vakmanschap.</h2>
-      <p class="who-body">
-        <span data-i18n="home.who.body">Bij Aldaco BV transformeren we interieurs in verfijnde, functionele en duurzame leefruimtes. We zijn gespecialiseerd in complete interieurRenovaties met premium afwerking, nauwkeurige detaillering en efficiënte projectuitvoering.<br><br>Onze missie is eenvoudig: Hoogwaardige resultaten leveren zonder onnodige complexiteit of overdreven prijzen.</span>
-        <span class="who-tagline" data-i18n="home.who.tagline">Comfort by Design.</span>
-      </p>
+      <p class="who-body"><span data-i18n="home.who.body">Bij Aldaco BV transformeren we interieurs in verfijnde, functionele en duurzame leefruimtes. We zijn gespecialiseerd in complete interieur renovaties met premium afwerking, nauwkeurige detaillering en efficiënte projectuitvoering.<br><br>Onze missie is eenvoudig: hoogwaardige resultaten leveren zonder onnodige complexiteit of overdreven prijzen.</span><span class="who-tagline" data-i18n="home.who.tagline">Comfort by Design.</span></p>
     </div>
-    <div class="who-cards">
-      <div class="who-card"><div class="who-card-num">01</div><div class="who-card-label" data-i18n="home.who.c1">Gestructureerde Aanpak</div></div>
-      <div class="who-card"><div class="who-card-num">02</div><div class="who-card-label" data-i18n="home.who.c2">Duidelijke Planning</div></div>
-      <div class="who-card"><div class="who-card-num">03</div><div class="who-card-label" data-i18n="home.who.c3">Premium Materialen</div></div>
-      <div class="who-card"><div class="who-card-num">04</div><div class="who-card-label" data-i18n="home.who.c4">Betrouwbare Uitvoering</div></div>
+    <div class="who-right-col">
+      <div class="photo-placeholder ph-dark" style="height:200px;">
+        <div class="ph-inner">
+          <div class="ph-icon">&#128247;</div>
+          <div class="ph-label" data-i18n="ph.team">Teamfoto of Werf</div>
+          <div class="ph-dims">800 &times; 400 px</div>
+          <div class="ph-tip" data-i18n="ph.team.tip">Team aan het werk of nette, afgewerkte werf</div>
+        </div>
+      </div>
+      <div class="who-cards">
+        <div class="who-card"><div class="who-card-num">01</div><div class="who-card-label" data-i18n="home.who.c1">Gestructureerde Aanpak</div></div>
+        <div class="who-card"><div class="who-card-num">02</div><div class="who-card-label" data-i18n="home.who.c2">Duidelijke Planning</div></div>
+        <div class="who-card"><div class="who-card-num">03</div><div class="who-card-label" data-i18n="home.who.c3">Premium Materialen</div></div>
+        <div class="who-card"><div class="who-card-num">04</div><div class="who-card-label" data-i18n="home.who.c4">Betrouwbare Uitvoering</div></div>
+      </div>
     </div>
   </section>
 
@@ -408,7 +426,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
       <div class="svc-card"><div class="svc-card-num">01</div><h3 class="svc-card-title" data-i18n="svc.bath.title">Badkamerrenovatie</h3><p class="svc-card-body" data-i18n="svc.bath.short">Complete badkamertransformaties van loodgieterswerk tot tegels, ventilatie tot verwarming.</p></div>
       <div class="svc-card"><div class="svc-card-num">02</div><h3 class="svc-card-title" data-i18n="svc.kit.title">Keukenrenovatie</h3><p class="svc-card-body" data-i18n="svc.kit.short">Structurele werken en installaties — loodgieterij, elektriciteit, vloer- en wandafwerking.</p></div>
       <div class="svc-card"><div class="svc-card-num">03</div><h3 class="svc-card-title" data-i18n="svc.floor.title">Vloeren &amp; Afwerking</h3><p class="svc-card-body" data-i18n="svc.floor.short">Laminaat, vinyl, bepleistering, gipsplafonds. Perfecte uitlijning en duurzame resultaten.</p></div>
-      <div class="svc-card"><div class="svc-card-num">04</div><h3 class="svc-card-title" data-i18n="svc.ins.title">Isolatie &amp; Energie</h3><p class="svc-card-body" data-i18n="svc.ins.short">Binnenste isolatie, zolderIsolatie en verwarmingsvoorbereiding voor meer comfort.</p></div>
+      <div class="svc-card"><div class="svc-card-num">04</div><h3 class="svc-card-title" data-i18n="svc.ins.title">Isolatie &amp; Energie</h3><p class="svc-card-body" data-i18n="svc.ins.short">Binnenste isolatie, zolderisolatie en verwarmingsvoorbereiding voor meer comfort.</p></div>
       <div class="svc-card"><div class="svc-card-num">05</div><h3 class="svc-card-title" data-i18n="svc.full.title">Volledige Renovatie</h3><p class="svc-card-body" data-i18n="svc.full.short">Van één kamer tot complete thuistransformaties. Één bedrijf. Één standaard.</p></div>
       <div class="svc-card-cta"><p data-i18n="home.svc.cta_text">Klaar om te beginnen?</p><span class="btn-primary" onclick="showPage('contact')" data-i18n="home.svc.cta_btn">Offerte aanvragen</span></div>
     </div>
@@ -435,7 +453,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
     <h2 class="section-title" data-i18n="home.proc.title">Hoe Wij Werken<br><em>Met U.</em></h2>
     <div class="process-grid">
       <div class="process-step"><div class="process-arrow">→</div><div class="process-num">01</div><h3 class="process-title" data-i18n="home.proc.s1t">Consultatie</h3><p class="process-body" data-i18n="home.proc.s1b">We luisteren, meten en begrijpen uw wensen voordat we iets anders doen.</p></div>
-      <div class="process-step"><div class="process-arrow">→</div><div class="process-num">02</div><h3 class="process-title" data-i18n="home.proc.s2t">Planning &amp; Offerte</h3><p class="process-body" data-i18n="home.proc.s2b">Duidelijke scope, gedetailleerde prijzen, geen verrassingen. U weet exact wat te verwachten.</p></div>
+      <div class="process-step"><div class="process-arrow">→</div><div class="process-num">02</div><h3 class="process-title" data-i18n="home.proc.s2t">Planning &amp; Offerte</h3><p class="process-body" data-i18n="home.proc.s2b">Duidelijke scope, gedetailleerde prijzen, geen verrassingen.</p></div>
       <div class="process-step"><div class="process-arrow">→</div><div class="process-num">03</div><h3 class="process-title" data-i18n="home.proc.s3t">Uitvoering</h3><p class="process-body" data-i18n="home.proc.s3b">Professioneel projectmanagement en hoogwaardig vakmanschap gedurende het hele traject.</p></div>
       <div class="process-step"><div class="process-num">04</div><h3 class="process-title" data-i18n="home.proc.s4t">Oplevering</h3><p class="process-body" data-i18n="home.proc.s4b">Eindcontrole en kwaliteitscheck — pas wanneer alles perfect is.</p></div>
     </div>
@@ -451,17 +469,18 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
 
 <div id="page-about" class="page">
   <div class="about-hero">
+    <div class="about-hero-bg photo-placeholder ph-dark"></div>
     <div>
       <p class="section-label" data-i18n="about.label">Over Aldaco BV</p>
       <h1 class="section-title" data-i18n="about.h1">De <em>Standaard</em><br>Verhogen in<br>Renovatie.</h1>
     </div>
-    <div class="about-hero-right" data-i18n="about.intro">Aldaco BV werd opgericht met één doel: de standaard van interieurRenovatie in België verhogen. We combineren technische precisie, praktische ervaring en gestructureerd projectmanagement om renovaties te leveren die blijvend zijn.</div>
+    <div class="about-hero-right" data-i18n="about.intro">Aldaco BV werd opgericht met één doel: de standaard van interieur renovatie in België verhogen. We combineren technische precisie, praktische ervaring en gestructureerd projectmanagement om renovaties te leveren die blijvend zijn.</div>
   </div>
   <section class="about-body">
     <div>
       <p class="section-label" data-i18n="about.exp.label">Onze Expertise</p>
       <h2 class="section-title" data-i18n="about.exp.title">Waar Wij In<br><em>Gespecialiseerd Zijn.</em></h2>
-      <p style="font-size:15px;color:var(--light-mid);line-height:1.9;margin-top:14px;" data-i18n="about.exp.body">Ons team beschikt over uitgebreide praktijkervaring op alle belangrijke gebieden van interieurRenovatie.</p>
+      <p style="font-size:15px;color:var(--light-mid);line-height:1.9;margin-top:14px;" data-i18n="about.exp.body">Ons team beschikt over uitgebreide praktijkervaring op alle belangrijke gebieden van interieur renovatie.</p>
     </div>
     <div>
       <ul class="about-list">
@@ -487,13 +506,13 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
     <div>
       <p class="section-label" data-i18n="about.vis.label">Onze Visie</p>
       <h2 class="section-title" data-i18n="about.vis.title">Een Vertrouwde Naam<br>in heel <em>België.</em></h2>
-      <p style="font-size:15px;color:var(--light-mid);line-height:1.9;margin-top:14px;" data-i18n="about.vis.body">De toonaangevende partner worden voor premium interieurRenovaties in heel België door resultaten te leveren die voor zichzelf spreken.</p>
+      <p style="font-size:15px;color:var(--light-mid);line-height:1.9;margin-top:14px;" data-i18n="about.vis.body">De toonaangevende partner worden voor premium interieur renovaties in heel België door resultaten te leveren die voor zichzelf spreken.</p>
     </div>
     <div class="vision-points">
-      <div class="vision-point"><div class="vision-icon">✓</div><p class="vision-text" data-i18n="about.vis.i1">Betrouwbare uitvoering bij elk project</p></div>
-      <div class="vision-point"><div class="vision-icon">✓</div><p class="vision-text" data-i18n="about.vis.i2">Hoogwaardige afwerkingen die de tand des tijds doorstaan</p></div>
-      <div class="vision-point"><div class="vision-icon">✓</div><p class="vision-text" data-i18n="about.vis.i3">Eerlijke en transparante prijzen, altijd</p></div>
-      <div class="vision-point"><div class="vision-icon">✓</div><p class="vision-text" data-i18n="about.vis.i4">Sterke, duurzame klantrelaties</p></div>
+      <div class="vision-point"><div class="vision-icon">&#10003;</div><p class="vision-text" data-i18n="about.vis.i1">Betrouwbare uitvoering bij elk project</p></div>
+      <div class="vision-point"><div class="vision-icon">&#10003;</div><p class="vision-text" data-i18n="about.vis.i2">Hoogwaardige afwerkingen die de tand des tijds doorstaan</p></div>
+      <div class="vision-point"><div class="vision-icon">&#10003;</div><p class="vision-text" data-i18n="about.vis.i3">Eerlijke en transparante prijzen, altijd</p></div>
+      <div class="vision-point"><div class="vision-icon">&#10003;</div><p class="vision-text" data-i18n="about.vis.i4">Sterke, duurzame klantrelaties</p></div>
     </div>
   </section>
   <div class="cta-strip">
@@ -506,9 +525,19 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
 
 <div id="page-services" class="page">
   <div class="services-page-hero">
-    <p class="section-label" data-i18n="services.label">Diensten</p>
-    <h1 class="section-title" data-i18n="services.h1">Volledige Interieur<br>Renovatie <em>Diensten.</em></h1>
-    <p data-i18n="services.sub">Elk project wordt uitgevoerd met technische expertise, gestructureerde planning en duidelijke communicatie.</p>
+    <div class="services-page-hero-left">
+      <p class="section-label" data-i18n="services.label">Diensten</p>
+      <h1 class="section-title" data-i18n="services.h1">Volledige Interieur<br>Renovatie <em>Diensten.</em></h1>
+      <p data-i18n="services.sub">Elk project wordt uitgevoerd met technische expertise, gestructureerde planning en duidelijke communicatie.</p>
+    </div>
+    <div class="photo-placeholder" style="min-height:500px;">
+      <div class="ph-inner">
+        <div class="ph-icon">&#128247;</div>
+        <div class="ph-label" data-i18n="ph.svc">Detailfoto Dienst</div>
+        <div class="ph-dims">800 &times; 600 px</div>
+        <div class="ph-tip" data-i18n="ph.svc.tip">Close-up van tegels, vloer, gereedschap of afwerking</div>
+      </div>
+    </div>
   </div>
   <div class="full-services">
     <div class="full-svc-card">
@@ -517,19 +546,19 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
     </div>
     <div class="full-svc-card">
       <div class="full-svc-left"><div class="full-svc-num">02</div><h2 class="full-svc-title" data-i18n="svc.kit.title">Keukenrenovatie</h2></div>
-      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.kit.long">We bereiden en renoveren keukenruimtes met de structurele precisie en technische gereedheid die moderne keukens vereisen. Nette uitvoering en exacte afstemming op uw ontwerp.</p><div class="tag-row"><span class="tag" data-i18n="tag.struct">Structurele Aanpassingen</span><span class="tag" data-i18n="tag.plumb">Loodgieterswerk</span><span class="tag" data-i18n="tag.elec">Elektrische Voorbereiding</span><span class="tag" data-i18n="tag.floorwall">Vloer &amp; Wandafwerking</span><span class="tag" data-i18n="tag.ceiling">Plafondwerken</span><span class="tag" data-i18n="tag.light">Lichtvoorbereiding</span></div><p class="svc-tagline" data-i18n="svc.kit.tagline">Exacte afstemming op uw ontwerpplan.</p></div>
+      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.kit.long">We bereiden en renoveren keukenruimtes met de structurele precisie en technische gereedheid die moderne keukens vereisen.</p><div class="tag-row"><span class="tag" data-i18n="tag.struct">Structurele Aanpassingen</span><span class="tag" data-i18n="tag.plumb">Loodgieterswerk</span><span class="tag" data-i18n="tag.elec">Elektrische Voorbereiding</span><span class="tag" data-i18n="tag.floorwall">Vloer &amp; Wandafwerking</span><span class="tag" data-i18n="tag.ceiling">Plafondwerken</span><span class="tag" data-i18n="tag.light">Lichtvoorbereiding</span></div><p class="svc-tagline" data-i18n="svc.kit.tagline">Exacte afstemming op uw ontwerpplan.</p></div>
     </div>
     <div class="full-svc-card">
       <div class="full-svc-left"><div class="full-svc-num">03</div><h2 class="full-svc-title" data-i18n="svc.floor.title">Vloeren &amp; Afwerking</h2></div>
-      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.floor.long">We installeren en finishen vloeren en oppervlakken met nauwlettende aandacht voor uitlijning, overgangen en langdurige duurzaamheid. Of het nu laminaat, vinyl of pleisterwerk is — het resultaat is naadloos.</p><div class="tag-row"><span class="tag" data-i18n="tag.lam">Laminaatvloer</span><span class="tag" data-i18n="tag.vinyl">Vinyl Vloer</span><span class="tag" data-i18n="tag.sub">Ondervloer Voorbereiding</span><span class="tag" data-i18n="tag.plaster">Wandbepleistering</span><span class="tag" data-i18n="tag.gypsum">Gipsplafonds</span><span class="tag" data-i18n="tag.deco">Decoratieve Afwerking</span></div><p class="svc-tagline" data-i18n="svc.floor.tagline">Perfecte uitlijning. Duurzame resultaten.</p></div>
+      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.floor.long">We installeren en finishen vloeren en oppervlakken met nauwlettende aandacht voor uitlijning, overgangen en langdurige duurzaamheid.</p><div class="tag-row"><span class="tag" data-i18n="tag.lam">Laminaatvloer</span><span class="tag" data-i18n="tag.vinyl">Vinyl Vloer</span><span class="tag" data-i18n="tag.sub">Ondervloer Voorbereiding</span><span class="tag" data-i18n="tag.plaster">Wandbepleistering</span><span class="tag" data-i18n="tag.gypsum">Gipsplafonds</span><span class="tag" data-i18n="tag.deco">Decoratieve Afwerking</span></div><p class="svc-tagline" data-i18n="svc.floor.tagline">Perfecte uitlijning. Duurzame resultaten.</p></div>
     </div>
     <div class="full-svc-card">
       <div class="full-svc-left"><div class="full-svc-num">04</div><h2 class="full-svc-title" data-i18n="svc.ins.title">Isolatie &amp; Energie</h2></div>
-      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.ins.long">Verbeter het comfort van uw woning en verlaag energiekosten met onze isolatie- en energieverbeteringsoplossingen. We optimaliseren van binnen naar buiten — muren, zolders en verwarmingssystemen.</p><div class="tag-row"><span class="tag" data-i18n="tag.intin">Binnenste Isolatie</span><span class="tag" data-i18n="tag.attic">Zolderafwerking</span><span class="tag" data-i18n="tag.heatprep">Verwarmingsvoorbereiding</span><span class="tag" data-i18n="tag.energy">Energieoptimalisatie</span></div><p class="svc-tagline" data-i18n="svc.ins.tagline">Meer comfort. Lagere energiekosten.</p></div>
+      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.ins.long">Verbeter het comfort van uw woning en verlaag energiekosten met onze isolatie- en energieverbeteringsoplossingen.</p><div class="tag-row"><span class="tag" data-i18n="tag.intin">Binnenste Isolatie</span><span class="tag" data-i18n="tag.attic">Zolderisolatie</span><span class="tag" data-i18n="tag.heatprep">Verwarmingsvoorbereiding</span><span class="tag" data-i18n="tag.energy">Energieoptimalisatie</span></div><p class="svc-tagline" data-i18n="svc.ins.tagline">Meer comfort. Lagere energiekosten.</p></div>
     </div>
     <div class="full-svc-card">
       <div class="full-svc-left"><div class="full-svc-num">05</div><h2 class="full-svc-title" data-i18n="svc.full.title">Volledige Renovatie</h2></div>
-      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.full.long">Van één kamerupgrade tot complete thuistransformaties. Wij coördineren elke fase onder één dak — sloop, technische installaties, afwerking en definitieve detaillering. Één bedrijf. Één verantwoordelijkheid. Één standaard.</p><div class="tag-row"><span class="tag" data-i18n="tag.demo">Sloopwerken</span><span class="tag" data-i18n="tag.tech">Technische Installaties</span><span class="tag" data-i18n="tag.finish">Interieurafwerking</span><span class="tag" data-i18n="tag.detail">Definitieve Detaillering</span></div><p class="svc-tagline" data-i18n="svc.full.tagline">Één bedrijf. Één standaard.</p></div>
+      <div class="full-svc-right"><p class="full-svc-body" data-i18n="svc.full.long">Van één kamerupgrade tot complete thuistransformaties. Wij coördineren elke fase — sloop, technische installaties, afwerking en definitieve detaillering.</p><div class="tag-row"><span class="tag" data-i18n="tag.demo">Sloopwerken</span><span class="tag" data-i18n="tag.tech">Technische Installaties</span><span class="tag" data-i18n="tag.finish">Interieurafwerking</span><span class="tag" data-i18n="tag.detail">Definitieve Detaillering</span></div><p class="svc-tagline" data-i18n="svc.full.tagline">Één bedrijf. Één standaard.</p></div>
     </div>
   </div>
   <div class="cta-strip">
@@ -542,6 +571,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
 
 <div id="page-projects" class="page">
   <div class="projects-hero">
+    <div class="projects-hero-bg photo-placeholder ph-dark"></div>
     <p class="section-label" data-i18n="projects.label">Ons Werk</p>
     <h1 class="section-title" data-i18n="projects.h1">Resultaten Spreken<br><em>Luider</em> Dan<br>Beloftes.</h1>
     <p class="projects-hero-sub" data-i18n="projects.sub">Elk project weerspiegelt nette afwerking, structurele precisie, duurzame installaties en aandacht voor detail.</p>
@@ -561,13 +591,17 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
     <p class="section-label" data-i18n="projects.gallery.label">Galerij</p>
     <h2 class="section-title" data-i18n="projects.gallery.title">Voor &amp; <em>Na</em></h2>
     <div class="gallery-grid">
-      <div class="gallery-card"><div class="gallery-icon">🏠</div><div class="gallery-label" data-i18n="gallery.soon">Projectfoto's Binnenkort</div></div>
-      <div class="gallery-card"><div class="gallery-icon">🛁</div><div class="gallery-label" data-i18n="gallery.ba">Voor &amp; Na Galerij</div></div>
-      <div class="gallery-card"><div class="gallery-icon">🪵</div><div class="gallery-label" data-i18n="gallery.floor">Vloerprojecten</div></div>
+      <div class="gallery-card photo-placeholder"><div class="ph-inner"><div class="ph-icon">&#128247;</div><div class="ph-label" data-i18n="ph.before">Project 1 — Vóór</div><div class="ph-dims">800 &times; 600 px</div><div class="ph-tip" data-i18n="ph.before.tip">Foto vóór de renovatie</div></div></div>
+      <div class="gallery-card photo-placeholder"><div class="ph-inner"><div class="ph-icon">&#10003;</div><div class="ph-label" data-i18n="ph.after">Project 1 — Na</div><div class="ph-dims">800 &times; 600 px</div><div class="ph-tip" data-i18n="ph.after.tip">Foto ná de renovatie — zelfde hoek</div></div></div>
+      <div class="gallery-card photo-placeholder"><div class="ph-inner"><div class="ph-icon">&#128247;</div><div class="ph-label" data-i18n="ph.before2">Project 2 — Vóór</div><div class="ph-dims">800 &times; 600 px</div><div class="ph-tip" data-i18n="ph.before.tip">Foto vóór de renovatie</div></div></div>
+      <div class="gallery-card photo-placeholder"><div class="ph-inner"><div class="ph-icon">&#10003;</div><div class="ph-label" data-i18n="ph.after2">Project 2 — Na</div><div class="ph-dims">800 &times; 600 px</div><div class="ph-tip" data-i18n="ph.after.tip">Foto ná de renovatie — zelfde hoek</div></div></div>
+      <div class="gallery-card photo-placeholder"><div class="ph-inner"><div class="ph-icon">&#128247;</div><div class="ph-label" data-i18n="ph.before3">Project 3 — Vóór</div><div class="ph-dims">800 &times; 600 px</div><div class="ph-tip" data-i18n="ph.before.tip">Foto vóór de renovatie</div></div></div>
+      <div class="gallery-card photo-placeholder"><div class="ph-inner"><div class="ph-icon">&#10003;</div><div class="ph-label" data-i18n="ph.after3">Project 3 — Na</div><div class="ph-dims">800 &times; 600 px</div><div class="ph-tip" data-i18n="ph.after.tip">Foto ná de renovatie — zelfde hoek</div></div></div>
     </div>
     <p style="font-size:13px;color:var(--light-mid);margin-top:18px;font-style:italic;" data-i18n="gallery.note">Voeg hier uw projectfoto's toe om uw afgewerkte renovaties te tonen.</p>
   </div>
   <section class="commitment-section">
+    <div class="commit-bg photo-placeholder ph-dark"></div>
     <div>
       <p class="section-label" data-i18n="projects.commit.label">Onze Belofte</p>
       <h2 class="section-title" data-i18n="projects.commit.title">Elke Renovatie,<br><em>Onze Standaard.</em></h2>
@@ -589,7 +623,17 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
       <p class="section-label" data-i18n="contact.label">Contact</p>
       <h1 class="section-title" data-i18n="contact.h1">Laten We Uw<br><em>Renovatie</em> Bespreken.</h1>
     </div>
-    <div class="contact-hero-right" data-i18n="contact.intro">Of u nu een volledige thuisrenovatie plant of één ruimte wil upgraden, wij staan klaar om u te helpen. Vertel ons over uw project en wij bezorgen u een gestructureerd voorstel met duidelijke vervolgstappen.</div>
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div class="photo-placeholder" style="height:260px;">
+        <div class="ph-inner">
+          <div class="ph-icon">&#128247;</div>
+          <div class="ph-label" data-i18n="ph.contact">Sfeervolle Interieur Foto</div>
+          <div class="ph-dims">700 &times; 500 px</div>
+          <div class="ph-tip" data-i18n="ph.contact.tip">Warm, afgewerkt interieur — woonkamer of keuken</div>
+        </div>
+      </div>
+      <div class="contact-hero-right" data-i18n="contact.intro">Of u nu een volledige thuisrenovatie plant of één ruimte wil upgraden, wij staan klaar om u te helpen. Vertel ons over uw project en wij bezorgen u een gestructureerd voorstel met duidelijke vervolgstappen.</div>
+    </div>
   </div>
   <div class="contact-main">
     <div class="contact-info">
@@ -623,11 +667,11 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
           </select>
         </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label" data-i18n="form.size">Geschatte Oppervlakte (m²)</label><input type="text" class="form-input" data-i18n-ph="form.size_ph" placeholder="bijv. 80 m²" /></div>
+          <div class="form-group"><label class="form-label" data-i18n="form.size">Oppervlakte (m²)</label><input type="text" class="form-input" data-i18n-ph="form.size_ph" placeholder="bijv. 80 m²" /></div>
           <div class="form-group"><label class="form-label" data-i18n="form.timeline">Gewenste Planning</label><input type="text" class="form-input" data-i18n-ph="form.timeline_ph" placeholder="bijv. 3 maanden" /></div>
         </div>
         <div class="form-group">
-          <label class="form-label" data-i18n="form.budget">Budgetrange</label>
+          <label class="form-label" data-i18n="form.budget">Budget</label>
           <select class="form-select">
             <option value="" data-i18n="form.select">Selecteer een range</option>
             <option data-i18n="form.b1">Minder dan 5.000</option>
@@ -652,7 +696,7 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
   </div>
 </div>
 
-<!-- ====== FOOTER ====== -->
+<!-- FOOTER -->
 
 <footer>
   <div>
@@ -682,612 +726,186 @@ footer { background: var(--charcoal); padding: 60px; display: grid; grid-templat
 </div>
 
 <script>
-/* =====================================================
-   TRANSLATIONS
-   ===================================================== */
-var translations = {
+/* ── TRANSLATIONS ── */
+var T = {
   nl: {
-    "nav.home": "Home",
-    "nav.about": "Over ons",
-    "nav.services": "Diensten",
-    "nav.projects": "Projecten",
-    "nav.contact": "Contact",
-    "nav.cta": "Offerte aanvragen",
-
-    "home.eyebrow": "Interieur Renovatie België",
-    "home.h1": "Interieur<br>Renovatie,<br><em>Vakkundig.</em>",
-    "home.sub": "Hoogwaardige interieurRenovaties in België — ontworpen met precisie, uitgevoerd met vakmanschap.",
-    "home.cta1": "Gratis consultatie aanvragen",
-    "home.cta2": "Onze projecten bekijken",
-    "home.stat": "Premium Afwerking",
-    "home.who.label": "Wie zijn wij",
-    "home.who.title": "Gebouwd op <em>Precisie</em><br>& Vakmanschap.",
-    "home.who.body": "Bij Aldaco BV transformeren we interieurs in verfijnde, functionele en duurzame leefruimtes. We zijn gespecialiseerd in complete interieurRenovaties met premium afwerking, nauwkeurige detaillering en efficiënte projectuitvoering.<br><br>Onze missie is eenvoudig: Hoogwaardige resultaten leveren zonder onnodige complexiteit of overdreven prijzen.",
-    "home.who.tagline": "Comfort by Design.",
-    "home.who.c1": "Gestructureerde Aanpak",
-    "home.who.c2": "Duidelijke Planning",
-    "home.who.c3": "Premium Materialen",
-    "home.who.c4": "Betrouwbare Uitvoering",
-    "home.svc.label": "Onze Diensten",
-    "home.svc.title": "Alles wat uw<br><em>Interieur Nodig Heeft.</em>",
-    "home.svc.cta_text": "Klaar om te beginnen?",
-    "home.svc.cta_btn": "Offerte aanvragen",
-    "home.why.label": "Waarom Aldaco BV",
-    "home.why.title": "Het Aldaco<br><em>Verschil.</em>",
-    "home.why.tagline": "We renoveren niet alleen ruimtes.<br>We verbeteren hoe u erin leeft.",
-    "home.why.i1": "Gestructureerde en professionele aanpak bij elk project",
-    "home.why.i2": "Duidelijke planning en transparante prijsstelling — geen verrassingen",
-    "home.why.i3": "Hoogwaardige, duurzame materialen zorgvuldig geselecteerd",
-    "home.why.i4": "Vakkundige Europese ambachtslieden met praktijkervaring",
-    "home.why.i5": "Nette en georganiseerde werven te allen tijde",
-    "home.why.i6": "Betrouwbare uitvoering — precies zoals afgesproken",
-    "home.proc.label": "Onze Werkwijze",
-    "home.proc.title": "Hoe Wij Werken<br><em>Met U.</em>",
-    "home.proc.s1t": "Consultatie",
-    "home.proc.s1b": "We luisteren, meten en begrijpen uw wensen voordat we iets anders doen.",
-    "home.proc.s2t": "Planning & Offerte",
-    "home.proc.s2b": "Duidelijke scope, gedetailleerde prijzen, geen verrassingen. U weet exact wat te verwachten.",
-    "home.proc.s3t": "Uitvoering",
-    "home.proc.s3b": "Professioneel projectmanagement en hoogwaardig vakmanschap gedurende het hele traject.",
-    "home.proc.s4t": "Oplevering",
-    "home.proc.s4b": "Eindcontrole en kwaliteitscheck — pas wanneer alles perfect is.",
-    "home.cta_strip": "Klaar om uw woning<br>te renoveren?",
-    "home.cta_strip_btn": "Gratis consultatie boeken",
-
-    "about.label": "Over Aldaco BV",
-    "about.h1": "De <em>Standaard</em><br>Verhogen in<br>Renovatie.",
-    "about.intro": "Aldaco BV werd opgericht met één doel: de standaard van interieurRenovatie in België verhogen. We combineren technische precisie, praktische ervaring en gestructureerd projectmanagement om renovaties te leveren die blijvend zijn.",
-    "about.exp.label": "Onze Expertise",
-    "about.exp.title": "Waar Wij In<br><em>Gespecialiseerd Zijn.</em>",
-    "about.exp.body": "Ons team beschikt over uitgebreide praktijkervaring op alle belangrijke gebieden van interieurRenovatie.",
-    "about.list.i1": "Badkamerinstallaties",
-    "about.list.i2": "Structurele interieuraanpassingen",
-    "about.list.i3": "Vloersystemen",
-    "about.list.i4": "Isolatieoplossingen",
-    "about.list.i5": "Interieurafwerking en detaillering",
-    "about.exp.footer": "We geloven dat renovatie niet chaotisch of stressvol moet zijn. Het moet professioneel worden gepland, uitgevoerd en opgeleverd — elke keer opnieuw.",
-    "about.phil.label": "Onze Filosofie",
-    "about.phil.title": "Drie Waarden.<br><em>Één Standaard.</em>",
-    "about.phil.q.t": "Kwaliteit",
-    "about.phil.q.b": "We gebruiken duurzame materialen en bewezen technieken. Elke afwerking wordt uitgevoerd op het hoogste niveau.",
-    "about.phil.e.t": "Efficiëntie",
-    "about.phil.e.b": "We respecteren planningen en organiseren projecten correct vanaf dag één. Geen vertragingen, geen verwarring.",
-    "about.phil.tr.t": "Transparantie",
-    "about.phil.tr.b": "Duidelijke prijzen, duidelijke afspraken, duidelijke communicatie. U weet altijd exact waar uw project staat.",
-    "about.vis.label": "Onze Visie",
-    "about.vis.title": "Een Vertrouwde Naam<br>in heel <em>België.</em>",
-    "about.vis.body": "De toonaangevende partner worden voor premium interieurRenovaties in heel België door resultaten te leveren die voor zichzelf spreken.",
-    "about.vis.i1": "Betrouwbare uitvoering bij elk project",
-    "about.vis.i2": "Hoogwaardige afwerkingen die de tand des tijds doorstaan",
-    "about.vis.i3": "Eerlijke en transparante prijzen, altijd",
-    "about.vis.i4": "Sterke, duurzame klantrelaties",
-    "about.cta": "Laten we samenwerken<br>aan uw renovatie.",
-    "about.cta_btn": "Neem Contact Op",
-
-    "services.label": "Diensten",
-    "services.h1": "Volledige Interieur<br>Renovatie <em>Diensten.</em>",
-    "services.sub": "Elk project wordt uitgevoerd met technische expertise, gestructureerde planning en duidelijke communicatie.",
-    "services.cta": "Heeft u een project<br>in gedachten?",
-    "services.cta_btn": "Stuur een Aanvraag",
-
-    "svc.bath.title": "Badkamerrenovatie",
-    "svc.bath.short": "Complete badkamertransformaties van loodgieterswerk tot tegels, ventilatie tot verwarmingsintegratie.",
-    "svc.bath.long": "We behandelen complete badkamertransformaties — van de eerste sloopwerken tot de laatste tegel. Elk onderdeel wordt professioneel beheerd en uitgevoerd, zodat u een ruimte krijgt die perfect functioneert.",
-    "svc.bath.tagline": "Van draagbalk tot tegel — volledig beheerd.",
-    "svc.kit.title": "Keukenrenovatie",
-    "svc.kit.short": "Structurele werken en installaties — loodgieterij, elektriciteit, vloer- en wandafwerking.",
-    "svc.kit.long": "We bereiden en renoveren keukenruimtes met de structurele precisie en technische gereedheid die moderne keukens vereisen. Nette uitvoering en exacte afstemming op uw ontwerp.",
-    "svc.kit.tagline": "Exacte afstemming op uw ontwerpplan.",
-    "svc.floor.title": "Vloeren & Afwerking",
-    "svc.floor.short": "Laminaat, vinyl, bepleistering, gipsplafonds. Perfecte uitlijning en duurzame resultaten.",
-    "svc.floor.long": "We installeren en finishen vloeren en oppervlakken met nauwlettende aandacht voor uitlijning, overgangen en langdurige duurzaamheid. Of het nu laminaat, vinyl of pleisterwerk is — het resultaat is naadloos.",
-    "svc.floor.tagline": "Perfecte uitlijning. Duurzame resultaten.",
-    "svc.ins.title": "Isolatie & Energie",
-    "svc.ins.short": "Binnenste isolatie, zolderIsolatie en verwarmingsvoorbereiding voor meer comfort.",
-    "svc.ins.long": "Verbeter het comfort van uw woning en verlaag energiekosten met onze isolatie- en energieverbeteringsoplossingen. We optimaliseren van binnen naar buiten — muren, zolders en verwarmingssystemen.",
-    "svc.ins.tagline": "Meer comfort. Lagere energiekosten.",
-    "svc.full.title": "Volledige Renovatie",
-    "svc.full.short": "Van één kamer tot complete thuistransformaties. Één bedrijf. Één standaard.",
-    "svc.full.long": "Van één kamerupgrade tot complete thuistransformaties. Wij coördineren elke fase onder één dak — sloop, technische installaties, afwerking en definitieve detaillering. Één bedrijf. Één verantwoordelijkheid. Één standaard.",
-    "svc.full.tagline": "Één bedrijf. Één standaard.",
-
-    "tag.demo": "Sloop & Voorbereiding", "tag.plumb": "Loodgieterswerk", "tag.shower": "Douche & Sanitair",
-    "tag.tile": "Betegeling & Waterdichting", "tag.vent": "Ventilatie", "tag.heat": "Verwarmingsintegratie",
-    "tag.struct": "Structurele Aanpassingen", "tag.elec": "Elektrische Voorbereiding",
-    "tag.floorwall": "Vloer & Wandafwerking", "tag.ceiling": "Plafondwerken", "tag.light": "Lichtvoorbereiding",
-    "tag.lam": "Laminaatvloer", "tag.vinyl": "Vinyl Vloer", "tag.sub": "Ondervloer Voorbereiding",
-    "tag.plaster": "Wandbepleistering", "tag.gypsum": "Gipsplafonds", "tag.deco": "Decoratieve Afwerking",
-    "tag.intin": "Binnenste Isolatie", "tag.attic": "Zolderafwerking", "tag.heatprep": "Verwarmingsvoorbereiding",
-    "tag.energy": "Energieoptimalisatie", "tag.tech": "Technische Installaties",
-    "tag.finish": "Interieurafwerking", "tag.detail": "Definitieve Detaillering",
-
-    "projects.label": "Ons Werk",
-    "projects.h1": "Resultaten Spreken<br><em>Luider</em> Dan<br>Beloftes.",
-    "projects.sub": "Elk project weerspiegelt nette afwerking, structurele precisie, duurzame installaties en aandacht voor detail.",
-    "projects.types.label": "Projecttypes",
-    "projects.types.title": "Wat Wij <em>Realiseren.</em>",
-    "pt.apt": "Appartementsrenovaties", "pt.apt.b": "Complete interieurtransformaties voor appartementen van alle groottes.",
-    "pt.house": "Gezinswoningen", "pt.house.b": "Gerichte interieurverbeteringen voor huizen en gezinswoningen.",
-    "pt.bath": "Badkamertransformaties", "pt.bath.b": "Volledige badkamerrenovaties van structuur tot eindafwerking.",
-    "pt.energy": "Energieverbeteringen", "pt.energy.b": "Isolatie- en energieoptimalisatieprojecten voor modern wonen.",
-    "pt.floor": "Vloermodernisering", "pt.floor.b": "Vloeren upgraden door hele woningen met duurzame precisie.",
-    "projects.gallery.label": "Galerij",
-    "projects.gallery.title": "Voor & <em>Na</em>",
-    "gallery.soon": "Projectfoto's Binnenkort",
-    "gallery.ba": "Voor & Na Galerij",
-    "gallery.floor": "Vloerprojecten",
-    "gallery.note": "Voeg hier uw projectfoto's toe om uw afgewerkte renovaties te tonen.",
-    "projects.commit.label": "Onze Belofte",
-    "projects.commit.title": "Elke Renovatie,<br><em>Onze Standaard.</em>",
-    "commit.l1": "We behandelen elke renovatie alsof het onze eigen woning is.",
-    "commit.l2": "Geen compromissen.",
-    "commit.l3": "Geen overhaaste afwerking.",
-    "commit.l4": "Geen concessies op kwaliteit.",
-
-    "contact.label": "Contact",
-    "contact.h1": "Laten We Uw<br><em>Renovatie</em> Bespreken.",
-    "contact.intro": "Of u nu een volledige thuisrenovatie plant of één ruimte wil upgraden, wij staan klaar om u te helpen. Vertel ons over uw project en wij bezorgen u een gestructureerd voorstel met duidelijke vervolgstappen.",
-    "contact.info.label": "Contactgegevens",
-    "contact.info.company_l": "Bedrijf",
-    "contact.info.loc_l": "Locatie",
-    "contact.info.loc": "België",
-    "contact.info.phone_l": "Telefoon / WhatsApp",
-    "contact.form.title": "Consultatie Aanvragen",
-    "contact.form.sub": "Vertel ons over uw project en wij stellen een gestructureerd voorstel op.",
-    "form.fname": "Voornaam", "form.fname_ph": "Uw voornaam",
-    "form.lname": "Achternaam", "form.lname_ph": "Uw achternaam",
-    "form.email": "E-mailadres", "form.phone": "Telefoonnummer",
-    "form.space": "Welke ruimte renoveert u?", "form.select": "Selecteer een optie",
-    "form.size": "Geschatte Oppervlakte (m²)", "form.size_ph": "bijv. 80 m²",
-    "form.timeline": "Gewenste Planning", "form.timeline_ph": "bijv. 3 maanden",
-    "form.budget": "Budgetrange",
-    "form.b1": "Minder dan 5.000", "form.b2": "5.000 – 15.000", "form.b3": "15.000 – 30.000",
-    "form.b4": "30.000 – 60.000", "form.b5": "60.000+",
-    "form.details": "Extra Details", "form.details_ph": "Vertel ons meer over uw project...",
-    "form.other": "Andere",
-    "form.submit": "Aanvraag Versturen",
-    "form.success": "Bedankt. We nemen binnenkort contact met u op.",
-
-    "footer.nav": "Navigatie",
-    "footer.contact": "Contact",
-    "footer.copy": "© 2025 Aldaco BV. Alle rechten voorbehouden.",
-    "footer.tagline2": "Interieur Renovatie België"
+    "nav.home":"Home","nav.about":"Over ons","nav.services":"Diensten","nav.projects":"Projecten","nav.contact":"Contact","nav.cta":"Offerte aanvragen",
+    "home.eyebrow":"Interieur Renovatie België","home.h1":"Interieur<br>Renovatie,<br><em>Vakkundig.</em>","home.sub":"Hoogwaardige interieur renovaties in België — ontworpen met precisie, uitgevoerd met vakmanschap.","home.cta1":"Gratis consultatie aanvragen","home.cta2":"Onze projecten bekijken","home.stat":"Premium Afwerking",
+    "home.who.label":"Wie zijn wij","home.who.title":"Gebouwd op <em>Precisie</em><br>& Vakmanschap.","home.who.body":"Bij Aldaco BV transformeren we interieurs in verfijnde, functionele en duurzame leefruimtes. We zijn gespecialiseerd in complete interieur renovaties met premium afwerking, nauwkeurige detaillering en efficiënte projectuitvoering.<br><br>Onze missie is eenvoudig: hoogwaardige resultaten leveren zonder onnodige complexiteit of overdreven prijzen.","home.who.tagline":"Comfort by Design.",
+    "home.who.c1":"Gestructureerde Aanpak","home.who.c2":"Duidelijke Planning","home.who.c3":"Premium Materialen","home.who.c4":"Betrouwbare Uitvoering",
+    "home.svc.label":"Onze Diensten","home.svc.title":"Alles wat uw<br><em>Interieur Nodig Heeft.</em>","home.svc.cta_text":"Klaar om te beginnen?","home.svc.cta_btn":"Offerte aanvragen",
+    "home.why.label":"Waarom Aldaco BV","home.why.title":"Het Aldaco<br><em>Verschil.</em>","home.why.tagline":"We renoveren niet alleen ruimtes.<br>We verbeteren hoe u erin leeft.","home.why.i1":"Gestructureerde en professionele aanpak bij elk project","home.why.i2":"Duidelijke planning en transparante prijsstelling — geen verrassingen","home.why.i3":"Hoogwaardige, duurzame materialen zorgvuldig geselecteerd","home.why.i4":"Vakkundige Europese ambachtslieden met praktijkervaring","home.why.i5":"Nette en georganiseerde werven te allen tijde","home.why.i6":"Betrouwbare uitvoering — precies zoals afgesproken",
+    "home.proc.label":"Onze Werkwijze","home.proc.title":"Hoe Wij Werken<br><em>Met U.</em>","home.proc.s1t":"Consultatie","home.proc.s1b":"We luisteren, meten en begrijpen uw wensen voordat we iets anders doen.","home.proc.s2t":"Planning & Offerte","home.proc.s2b":"Duidelijke scope, gedetailleerde prijzen, geen verrassingen.","home.proc.s3t":"Uitvoering","home.proc.s3b":"Professioneel projectmanagement en hoogwaardig vakmanschap gedurende het hele traject.","home.proc.s4t":"Oplevering","home.proc.s4b":"Eindcontrole en kwaliteitscheck — pas wanneer alles perfect is.",
+    "home.cta_strip":"Klaar om uw woning<br>te renoveren?","home.cta_strip_btn":"Gratis consultatie boeken",
+    "about.label":"Over Aldaco BV","about.h1":"De <em>Standaard</em><br>Verhogen in<br>Renovatie.","about.intro":"Aldaco BV werd opgericht met één doel: de standaard van interieur renovatie in België verhogen. We combineren technische precisie, praktische ervaring en gestructureerd projectmanagement om renovaties te leveren die blijvend zijn.",
+    "about.exp.label":"Onze Expertise","about.exp.title":"Waar Wij In<br><em>Gespecialiseerd Zijn.</em>","about.exp.body":"Ons team beschikt over uitgebreide praktijkervaring op alle belangrijke gebieden van interieur renovatie.",
+    "about.list.i1":"Badkamerinstallaties","about.list.i2":"Structurele interieuraanpassingen","about.list.i3":"Vloersystemen","about.list.i4":"Isolatieoplossingen","about.list.i5":"Interieurafwerking en detaillering",
+    "about.exp.footer":"We geloven dat renovatie niet chaotisch of stressvol moet zijn. Het moet professioneel worden gepland, uitgevoerd en opgeleverd — elke keer opnieuw.",
+    "about.phil.label":"Onze Filosofie","about.phil.title":"Drie Waarden.<br><em>Één Standaard.</em>","about.phil.q.t":"Kwaliteit","about.phil.q.b":"We gebruiken duurzame materialen en bewezen technieken. Elke afwerking wordt uitgevoerd op het hoogste niveau.","about.phil.e.t":"Efficiëntie","about.phil.e.b":"We respecteren planningen en organiseren projecten correct vanaf dag één. Geen vertragingen, geen verwarring.","about.phil.tr.t":"Transparantie","about.phil.tr.b":"Duidelijke prijzen, duidelijke afspraken, duidelijke communicatie.",
+    "about.vis.label":"Onze Visie","about.vis.title":"Een Vertrouwde Naam<br>in heel <em>België.</em>","about.vis.body":"De toonaangevende partner worden voor premium interieur renovaties in heel België.","about.vis.i1":"Betrouwbare uitvoering bij elk project","about.vis.i2":"Hoogwaardige afwerkingen die de tand des tijds doorstaan","about.vis.i3":"Eerlijke en transparante prijzen, altijd","about.vis.i4":"Sterke, duurzame klantrelaties",
+    "about.cta":"Laten we samenwerken<br>aan uw renovatie.","about.cta_btn":"Neem Contact Op",
+    "services.label":"Diensten","services.h1":"Volledige Interieur<br>Renovatie <em>Diensten.</em>","services.sub":"Elk project wordt uitgevoerd met technische expertise, gestructureerde planning en duidelijke communicatie.","services.cta":"Heeft u een project<br>in gedachten?","services.cta_btn":"Stuur een Aanvraag",
+    "svc.bath.title":"Badkamerrenovatie","svc.bath.short":"Complete badkamertransformaties van loodgieterswerk tot tegels, ventilatie tot verwarming.","svc.bath.long":"We behandelen complete badkamertransformaties — van de eerste sloopwerken tot de laatste tegel. Elk onderdeel wordt professioneel beheerd en uitgevoerd.","svc.bath.tagline":"Van draagbalk tot tegel — volledig beheerd.",
+    "svc.kit.title":"Keukenrenovatie","svc.kit.short":"Structurele werken en installaties — loodgieterij, elektriciteit, vloer- en wandafwerking.","svc.kit.long":"We bereiden en renoveren keukenruimtes met de structurele precisie en technische gereedheid die moderne keukens vereisen.","svc.kit.tagline":"Exacte afstemming op uw ontwerpplan.",
+    "svc.floor.title":"Vloeren & Afwerking","svc.floor.short":"Laminaat, vinyl, bepleistering, gipsplafonds. Perfecte uitlijning en duurzame resultaten.","svc.floor.long":"We installeren en finishen vloeren en oppervlakken met nauwlettende aandacht voor uitlijning, overgangen en langdurige duurzaamheid.","svc.floor.tagline":"Perfecte uitlijning. Duurzame resultaten.",
+    "svc.ins.title":"Isolatie & Energie","svc.ins.short":"Binnenste isolatie, zolderisolatie en verwarmingsvoorbereiding voor meer comfort.","svc.ins.long":"Verbeter het comfort van uw woning en verlaag energiekosten met onze isolatie- en energieverbeteringsoplossingen.","svc.ins.tagline":"Meer comfort. Lagere energiekosten.",
+    "svc.full.title":"Volledige Renovatie","svc.full.short":"Van één kamer tot complete thuistransformaties. Één bedrijf. Één standaard.","svc.full.long":"Van één kamerupgrade tot complete thuistransformaties. Wij coördineren elke fase — sloop, technische installaties, afwerking en definitieve detaillering.","svc.full.tagline":"Één bedrijf. Één standaard.",
+    "tag.demo":"Sloop & Voorbereiding","tag.plumb":"Loodgieterswerk","tag.shower":"Douche & Sanitair","tag.tile":"Betegeling & Waterdichting","tag.vent":"Ventilatie","tag.heat":"Verwarmingsintegratie","tag.struct":"Structurele Aanpassingen","tag.elec":"Elektrische Voorbereiding","tag.floorwall":"Vloer & Wandafwerking","tag.ceiling":"Plafondwerken","tag.light":"Lichtvoorbereiding","tag.lam":"Laminaatvloer","tag.vinyl":"Vinyl Vloer","tag.sub":"Ondervloer Voorbereiding","tag.plaster":"Wandbepleistering","tag.gypsum":"Gipsplafonds","tag.deco":"Decoratieve Afwerking","tag.intin":"Binnenste Isolatie","tag.attic":"Zolderisolatie","tag.heatprep":"Verwarmingsvoorbereiding","tag.energy":"Energieoptimalisatie","tag.tech":"Technische Installaties","tag.finish":"Interieurafwerking","tag.detail":"Definitieve Detaillering",
+    "projects.label":"Ons Werk","projects.h1":"Resultaten Spreken<br><em>Luider</em> Dan<br>Beloftes.","projects.sub":"Elk project weerspiegelt nette afwerking, structurele precisie, duurzame installaties en aandacht voor detail.",
+    "projects.types.label":"Projecttypes","projects.types.title":"Wat Wij <em>Realiseren.</em>","pt.apt":"Appartementsrenovaties","pt.apt.b":"Complete interieurtransformaties voor appartementen van alle groottes.","pt.house":"Gezinswoningen","pt.house.b":"Gerichte interieurverbeteringen voor huizen en gezinswoningen.","pt.bath":"Badkamertransformaties","pt.bath.b":"Volledige badkamerrenovaties van structuur tot eindafwerking.","pt.energy":"Energieverbeteringen","pt.energy.b":"Isolatie- en energieoptimalisatieprojecten voor modern wonen.","pt.floor":"Vloermodernisering","pt.floor.b":"Vloeren upgraden door hele woningen met duurzame precisie.",
+    "projects.gallery.label":"Galerij","projects.gallery.title":"Voor & <em>Na</em>","gallery.note":"Voeg hier uw projectfoto's toe om uw afgewerkte renovaties te tonen.",
+    "projects.commit.label":"Onze Belofte","projects.commit.title":"Elke Renovatie,<br><em>Onze Standaard.</em>","commit.l1":"We behandelen elke renovatie alsof het onze eigen woning is.","commit.l2":"Geen compromissen.","commit.l3":"Geen overhaaste afwerking.","commit.l4":"Geen concessies op kwaliteit.",
+    "contact.label":"Contact","contact.h1":"Laten We Uw<br><em>Renovatie</em> Bespreken.","contact.intro":"Of u nu een volledige thuisrenovatie plant of één ruimte wil upgraden, wij staan klaar om u te helpen.","contact.info.label":"Contactgegevens","contact.info.company_l":"Bedrijf","contact.info.loc_l":"Locatie","contact.info.loc":"België","contact.info.phone_l":"Telefoon / WhatsApp","contact.form.title":"Consultatie Aanvragen","contact.form.sub":"Vertel ons over uw project en wij stellen een gestructureerd voorstel op.",
+    "form.fname":"Voornaam","form.fname_ph":"Uw voornaam","form.lname":"Achternaam","form.lname_ph":"Uw achternaam","form.email":"E-mailadres","form.phone":"Telefoonnummer","form.space":"Welke ruimte renoveert u?","form.select":"Selecteer een optie","form.size":"Oppervlakte (m²)","form.size_ph":"bijv. 80 m²","form.timeline":"Gewenste Planning","form.timeline_ph":"bijv. 3 maanden","form.budget":"Budget","form.b1":"Minder dan 5.000","form.b2":"5.000 – 15.000","form.b3":"15.000 – 30.000","form.b4":"30.000 – 60.000","form.b5":"60.000+","form.details":"Extra Details","form.details_ph":"Vertel ons meer over uw project...","form.other":"Andere","form.submit":"Aanvraag Versturen","form.success":"Bedankt. We nemen binnenkort contact met u op.",
+    "footer.nav":"Navigatie","footer.contact":"Contact","footer.copy":"© 2025 Aldaco BV. Alle rechten voorbehouden.","footer.tagline2":"Interieur Renovatie België",
+    "ph.hero":"Hero Foto","ph.hero.tip":"Uw beste afgewerkte project — badkamer, keuken of woonkamer","ph.team":"Teamfoto of Werf","ph.team.tip":"Team aan het werk of nette, afgewerkte werf","ph.svc":"Detailfoto Dienst","ph.svc.tip":"Close-up van tegels, vloer, gereedschap of afwerking","ph.before":"Project 1 — Vóór","ph.after":"Project 1 — Na","ph.before2":"Project 2 — Vóór","ph.after2":"Project 2 — Na","ph.before3":"Project 3 — Vóór","ph.after3":"Project 3 — Na","ph.before.tip":"Foto vóór de renovatie","ph.after.tip":"Foto ná de renovatie — zelfde hoek","ph.contact":"Sfeervolle Interieur Foto","ph.contact.tip":"Warm, afgewerkt interieur — woonkamer of keuken"
   },
-
   fr: {
-    "nav.home": "Accueil",
-    "nav.about": "À propos",
-    "nav.services": "Services",
-    "nav.projects": "Projets",
-    "nav.contact": "Contact",
-    "nav.cta": "Demander un devis",
-
-    "home.eyebrow": "Rénovation Intérieure Belgique",
-    "home.h1": "Rénovation<br>Intérieure,<br><em>Bien Faite.</em>",
-    "home.sub": "Rénovations intérieures de haute qualité en Belgique — conçues avec précision, exécutées avec savoir-faire.",
-    "home.cta1": "Consultation gratuite",
-    "home.cta2": "Voir nos projets",
-    "home.stat": "Finitions Premium",
-    "home.who.label": "Qui sommes-nous",
-    "home.who.title": "Fondé sur la <em>Précision</em><br>& le Savoir-faire.",
-    "home.who.body": "Chez Aldaco BV, nous transformons les intérieurs en espaces de vie raffinés, fonctionnels et durables. Nous sommes spécialisés dans les rénovations intérieures complètes avec des finitions premium, des détails précis et une exécution efficace.<br><br>Notre mission est simple : livrer des résultats haut de gamme sans complexité inutile ni prix gonflés.",
-    "home.who.tagline": "Comfort by Design.",
-    "home.who.c1": "Approche Structurée",
-    "home.who.c2": "Plannings Clairs",
-    "home.who.c3": "Matériaux Premium",
-    "home.who.c4": "Exécution Fiable",
-    "home.svc.label": "Nos Services",
-    "home.svc.title": "Tout ce que votre<br><em>Intérieur Nécessite.</em>",
-    "home.svc.cta_text": "Prêt à commencer?",
-    "home.svc.cta_btn": "Demander un devis",
-    "home.why.label": "Pourquoi Aldaco BV",
-    "home.why.title": "La Différence<br><em>Aldaco.</em>",
-    "home.why.tagline": "Nous ne rénovons pas seulement des espaces.<br>Nous améliorons votre façon d'y vivre.",
-    "home.why.i1": "Approche structurée et professionnelle pour chaque projet",
-    "home.why.i2": "Plannings clairs et prix transparents — sans surprises",
-    "home.why.i3": "Matériaux de haute qualité et durables soigneusement sélectionnés",
-    "home.why.i4": "Artisans européens qualifiés avec expérience pratique",
-    "home.why.i5": "Chantiers propres et organisés en tout temps",
-    "home.why.i6": "Exécution fiable — livré exactement comme convenu",
-    "home.proc.label": "Notre Méthode",
-    "home.proc.title": "Comment Nous Travaillons<br><em>Avec Vous.</em>",
-    "home.proc.s1t": "Consultation",
-    "home.proc.s1b": "Nous écoutons, mesurons et comprenons vos besoins avant tout.",
-    "home.proc.s2t": "Planification & Devis",
-    "home.proc.s2b": "Portée claire, prix détaillés, sans surprises. Vous savez exactement à quoi vous attendre.",
-    "home.proc.s3t": "Exécution",
-    "home.proc.s3b": "Gestion professionnelle de projet et artisanat de haute qualité tout au long du chantier.",
-    "home.proc.s4t": "Livraison",
-    "home.proc.s4b": "Inspection finale et contrôle qualité — seulement quand tout est parfait.",
-    "home.cta_strip": "Prêt à rénover<br>votre maison?",
-    "home.cta_strip_btn": "Réserver une consultation gratuite",
-
-    "about.label": "À propos d'Aldaco BV",
-    "about.h1": "Élever le <em>Standard</em><br>de la<br>Rénovation.",
-    "about.intro": "Aldaco BV a été fondée avec un seul objectif : élever le standard de la rénovation intérieure en Belgique. Nous combinons la précision technique, l'expérience pratique et la gestion structurée de projets pour livrer des rénovations durables.",
-    "about.exp.label": "Notre Expertise",
-    "about.exp.title": "Nos <em>Domaines de<br>Spécialisation.</em>",
-    "about.exp.body": "Notre équipe possède une solide expérience pratique dans tous les domaines clés de la rénovation intérieure.",
-    "about.list.i1": "Installations de salles de bain",
-    "about.list.i2": "Ajustements structurels intérieurs",
-    "about.list.i3": "Systèmes de revêtement de sol",
-    "about.list.i4": "Solutions d'isolation",
-    "about.list.i5": "Finitions intérieures et détails",
-    "about.exp.footer": "Nous croyons que la rénovation ne doit pas être chaotique ou stressante. Elle doit être planifiée, exécutée et livrée professionnellement — chaque fois.",
-    "about.phil.label": "Notre Philosophie",
-    "about.phil.title": "Trois Valeurs.<br><em>Un Standard.</em>",
-    "about.phil.q.t": "Qualité",
-    "about.phil.q.b": "Nous utilisons des matériaux durables et des techniques éprouvées. Chaque finition est exécutée au plus haut niveau.",
-    "about.phil.e.t": "Efficacité",
-    "about.phil.e.b": "Nous respectons les délais et organisons les projets correctement dès le premier jour. Pas de retards, pas de confusion.",
-    "about.phil.tr.t": "Transparence",
-    "about.phil.tr.b": "Prix clairs, accords clairs, communication claire. Vous saurez toujours exactement où en est votre projet.",
-    "about.vis.label": "Notre Vision",
-    "about.vis.title": "Un Nom de Confiance<br>dans toute la <em>Belgique.</em>",
-    "about.vis.body": "Devenir le partenaire de référence pour les rénovations intérieures premium en Belgique en livrant des résultats qui parlent d'eux-mêmes.",
-    "about.vis.i1": "Exécution fiable sur chaque projet",
-    "about.vis.i2": "Finitions haut de gamme qui résistent à l'épreuve du temps",
-    "about.vis.i3": "Prix justes et transparents, toujours",
-    "about.vis.i4": "Relations clients solides et durables",
-    "about.cta": "Collaborons ensemble<br>sur votre rénovation.",
-    "about.cta_btn": "Nous Contacter",
-
-    "services.label": "Services",
-    "services.h1": "Services Complets de<br>Rénovation <em>Intérieure.</em>",
-    "services.sub": "Chaque projet est géré avec expertise technique, planification structurée et communication claire.",
-    "services.cta": "Vous avez un projet<br>en tête?",
-    "services.cta_btn": "Envoyer une Demande",
-
-    "svc.bath.title": "Rénovation Salle de Bain",
-    "svc.bath.short": "Transformations complètes de salles de bain, de la plomberie aux carreaux, de la ventilation au chauffage.",
-    "svc.bath.long": "Nous gérons des transformations complètes de salles de bain — des premières démolitions au dernier carreau. Chaque élément est géré et exécuté professionnellement pour un espace impeccable.",
-    "svc.bath.tagline": "De la structure au carreau — entièrement géré.",
-    "svc.kit.title": "Rénovation Cuisine",
-    "svc.kit.short": "Travaux structurels et installations — plomberie, électricité, revêtements sol et mur.",
-    "svc.kit.long": "Nous préparons et rénovons les cuisines avec la précision structurelle et la préparation technique qu'exigent les cuisines modernes. Exécution soignée et alignement précis sur votre plan de conception.",
-    "svc.kit.tagline": "Alignement précis sur votre plan de conception.",
-    "svc.floor.title": "Sols & Finitions",
-    "svc.floor.short": "Stratifié, vinyle, plâtrage, plafonds en plâtre. Alignement parfait et résultats durables.",
-    "svc.floor.long": "Nous installons et finissons les sols et surfaces avec une attention méticuleuse à l'alignement, aux transitions et à la durabilité. Que ce soit du stratifié, du vinyle ou du plâtre — le résultat est impeccable.",
-    "svc.floor.tagline": "Alignement parfait. Résultats durables.",
-    "svc.ins.title": "Isolation & Énergie",
-    "svc.ins.short": "Isolation intérieure, isolation combles et préparation chauffage pour plus de confort.",
-    "svc.ins.long": "Améliorez le confort de votre maison et réduisez les coûts énergétiques avec nos solutions d'isolation et d'amélioration énergétique. Nous optimisons de l'intérieur — murs, combles et systèmes de chauffage.",
-    "svc.ins.tagline": "Plus de confort. Moins de dépenses énergétiques.",
-    "svc.full.title": "Rénovation Complète",
-    "svc.full.short": "D'une seule pièce à des transformations complètes. Une entreprise. Un standard.",
-    "svc.full.long": "De la rénovation d'une pièce à la transformation complète de votre maison. Nous coordonnons chaque phase — démolition, installations techniques, finitions et détails finaux. Une entreprise. Une responsabilité. Un standard.",
-    "svc.full.tagline": "Une entreprise. Un standard.",
-
-    "tag.demo": "Démolition & Préparation", "tag.plumb": "Plomberie", "tag.shower": "Douche & Sanitaire",
-    "tag.tile": "Carrelage & Étanchéité", "tag.vent": "Ventilation", "tag.heat": "Intégration Chauffage",
-    "tag.struct": "Ajustements Structurels", "tag.elec": "Préparation Électrique",
-    "tag.floorwall": "Sol & Mur", "tag.ceiling": "Travaux Plafond", "tag.light": "Préparation Éclairage",
-    "tag.lam": "Sol Stratifié", "tag.vinyl": "Sol Vinyle", "tag.sub": "Préparation Sous-sol",
-    "tag.plaster": "Plâtrage Mural", "tag.gypsum": "Plafonds Plâtre", "tag.deco": "Finitions Décoratives",
-    "tag.intin": "Isolation Intérieure", "tag.attic": "Isolation Combles", "tag.heatprep": "Préparation Chauffage",
-    "tag.energy": "Optimisation Énergie", "tag.tech": "Installations Techniques",
-    "tag.finish": "Finitions Intérieures", "tag.detail": "Détails Finaux",
-
-    "projects.label": "Notre Travail",
-    "projects.h1": "Les Résultats Parlent<br><em>Plus Fort</em> que<br>les Promesses.",
-    "projects.sub": "Chaque projet reflète des finitions soignées, une précision structurelle, des installations durables et une attention aux détails.",
-    "projects.types.label": "Types de Projets",
-    "projects.types.title": "Ce que Nous <em>Réalisons.</em>",
-    "pt.apt": "Rénovations d'appartements", "pt.apt.b": "Transformations intérieures complètes pour appartements de toutes tailles.",
-    "pt.house": "Maisons familiales", "pt.house.b": "Améliorations intérieures ciblées pour maisons et habitations familiales.",
-    "pt.bath": "Transformations salles de bain", "pt.bath.b": "Rénovations complètes de salles de bain, de la structure à la finition.",
-    "pt.energy": "Améliorations énergétiques", "pt.energy.b": "Projets d'isolation et d'optimisation énergétique pour le confort moderne.",
-    "pt.floor": "Modernisation des sols", "pt.floor.b": "Mise à niveau des sols dans des maisons entières avec précision durable.",
-    "projects.gallery.label": "Galerie",
-    "projects.gallery.title": "Avant & <em>Après</em>",
-    "gallery.soon": "Photos de Projets Bientôt",
-    "gallery.ba": "Galerie Avant & Après",
-    "gallery.floor": "Projets de Sol",
-    "gallery.note": "Ajoutez ici vos photos de projets pour présenter vos rénovations réalisées.",
-    "projects.commit.label": "Notre Engagement",
-    "projects.commit.title": "Chaque Rénovation,<br><em>Notre Standard.</em>",
-    "commit.l1": "Nous traitons chaque rénovation comme si c'était notre propre maison.",
-    "commit.l2": "Pas de raccourcis.",
-    "commit.l3": "Pas de finitions bâclées.",
-    "commit.l4": "Pas de compromis sur la qualité.",
-
-    "contact.label": "Contact",
-    "contact.h1": "Discutons de Votre<br><em>Rénovation.</em>",
-    "contact.intro": "Que vous planifiiez une rénovation complète ou l'amélioration d'un seul espace, nous sommes prêts à vous aider. Parlez-nous de votre projet et nous vous préparerons une proposition structurée.",
-    "contact.info.label": "Coordonnées",
-    "contact.info.company_l": "Entreprise",
-    "contact.info.loc_l": "Localisation",
-    "contact.info.loc": "Belgique",
-    "contact.info.phone_l": "Téléphone / WhatsApp",
-    "contact.form.title": "Demander une Consultation",
-    "contact.form.sub": "Parlez-nous de votre projet et nous préparerons une proposition structurée.",
-    "form.fname": "Prénom", "form.fname_ph": "Votre prénom",
-    "form.lname": "Nom", "form.lname_ph": "Votre nom",
-    "form.email": "Adresse e-mail", "form.phone": "Numéro de téléphone",
-    "form.space": "Quel espace rénovez-vous?", "form.select": "Sélectionnez une option",
-    "form.size": "Surface approximative (m²)", "form.size_ph": "ex. 80 m²",
-    "form.timeline": "Délai souhaité", "form.timeline_ph": "ex. 3 mois",
-    "form.budget": "Budget",
-    "form.b1": "Moins de 5.000", "form.b2": "5.000 – 15.000", "form.b3": "15.000 – 30.000",
-    "form.b4": "30.000 – 60.000", "form.b5": "60.000+",
-    "form.details": "Détails supplémentaires", "form.details_ph": "Dites-nous en plus sur votre projet...",
-    "form.other": "Autre",
-    "form.submit": "Envoyer la Demande",
-    "form.success": "Merci. Nous vous contacterons bientôt.",
-
-    "footer.nav": "Navigation",
-    "footer.contact": "Contact",
-    "footer.copy": "© 2025 Aldaco BV. Tous droits réservés.",
-    "footer.tagline2": "Rénovation Intérieure Belgique"
-  }
-,
-
+    "nav.home":"Accueil","nav.about":"À propos","nav.services":"Services","nav.projects":"Projets","nav.contact":"Contact","nav.cta":"Demander un devis",
+    "home.eyebrow":"Rénovation Intérieure Belgique","home.h1":"Rénovation<br>Intérieure,<br><em>Bien Faite.</em>","home.sub":"Rénovations intérieures de haute qualité en Belgique — conçues avec précision, exécutées avec savoir-faire.","home.cta1":"Consultation gratuite","home.cta2":"Voir nos projets","home.stat":"Finitions Premium",
+    "home.who.label":"Qui sommes-nous","home.who.title":"Fondé sur la <em>Précision</em><br>& le Savoir-faire.","home.who.body":"Chez Aldaco BV, nous transformons les intérieurs en espaces de vie raffinés, fonctionnels et durables. Nous sommes spécialisés dans les rénovations intérieures complètes avec des finitions premium, des détails précis et une exécution efficace.<br><br>Notre mission est simple : livrer des résultats haut de gamme sans complexité inutile ni prix gonflés.","home.who.tagline":"Comfort by Design.",
+    "home.who.c1":"Approche Structurée","home.who.c2":"Plannings Clairs","home.who.c3":"Matériaux Premium","home.who.c4":"Exécution Fiable",
+    "home.svc.label":"Nos Services","home.svc.title":"Tout ce que votre<br><em>Intérieur Nécessite.</em>","home.svc.cta_text":"Prêt à commencer?","home.svc.cta_btn":"Demander un devis",
+    "home.why.label":"Pourquoi Aldaco BV","home.why.title":"La Différence<br><em>Aldaco.</em>","home.why.tagline":"Nous ne rénovons pas seulement des espaces.<br>Nous améliorons votre façon d'y vivre.","home.why.i1":"Approche structurée et professionnelle pour chaque projet","home.why.i2":"Plannings clairs et prix transparents — sans surprises","home.why.i3":"Matériaux de haute qualité et durables soigneusement sélectionnés","home.why.i4":"Artisans européens qualifiés avec expérience pratique","home.why.i5":"Chantiers propres et organisés en tout temps","home.why.i6":"Exécution fiable — livré exactement comme convenu",
+    "home.proc.label":"Notre Méthode","home.proc.title":"Comment Nous Travaillons<br><em>Avec Vous.</em>","home.proc.s1t":"Consultation","home.proc.s1b":"Nous écoutons, mesurons et comprenons vos besoins avant tout.","home.proc.s2t":"Planification & Devis","home.proc.s2b":"Portée claire, prix détaillés, sans surprises.","home.proc.s3t":"Exécution","home.proc.s3b":"Gestion professionnelle de projet et artisanat de haute qualité.","home.proc.s4t":"Livraison","home.proc.s4b":"Inspection finale et contrôle qualité — seulement quand tout est parfait.",
+    "home.cta_strip":"Prêt à rénover<br>votre maison?","home.cta_strip_btn":"Réserver une consultation gratuite",
+    "about.label":"À propos d'Aldaco BV","about.h1":"Élever le <em>Standard</em><br>de la<br>Rénovation.","about.intro":"Aldaco BV a été fondée avec un seul objectif : élever le standard de la rénovation intérieure en Belgique. Nous combinons la précision technique, l'expérience pratique et la gestion structurée de projets pour livrer des rénovations durables.",
+    "about.exp.label":"Notre Expertise","about.exp.title":"Nos <em>Domaines de<br>Spécialisation.</em>","about.exp.body":"Notre équipe possède une solide expérience pratique dans tous les domaines clés de la rénovation intérieure.",
+    "about.list.i1":"Installations de salles de bain","about.list.i2":"Ajustements structurels intérieurs","about.list.i3":"Systèmes de revêtement de sol","about.list.i4":"Solutions d'isolation","about.list.i5":"Finitions intérieures et détails",
+    "about.exp.footer":"Nous croyons que la rénovation ne doit pas être chaotique ou stressante. Elle doit être planifiée, exécutée et livrée professionnellement — chaque fois.",
+    "about.phil.label":"Notre Philosophie","about.phil.title":"Trois Valeurs.<br><em>Un Standard.</em>","about.phil.q.t":"Qualité","about.phil.q.b":"Nous utilisons des matériaux durables et des techniques éprouvées. Chaque finition est exécutée au plus haut niveau.","about.phil.e.t":"Efficacité","about.phil.e.b":"Nous respectons les délais et organisons les projets correctement dès le premier jour.","about.phil.tr.t":"Transparence","about.phil.tr.b":"Prix clairs, accords clairs, communication claire.",
+    "about.vis.label":"Notre Vision","about.vis.title":"Un Nom de Confiance<br>dans toute la <em>Belgique.</em>","about.vis.body":"Devenir le partenaire de référence pour les rénovations intérieures premium en Belgique.","about.vis.i1":"Exécution fiable sur chaque projet","about.vis.i2":"Finitions haut de gamme qui résistent à l'épreuve du temps","about.vis.i3":"Prix justes et transparents, toujours","about.vis.i4":"Relations clients solides et durables",
+    "about.cta":"Collaborons ensemble<br>sur votre rénovation.","about.cta_btn":"Nous Contacter",
+    "services.label":"Services","services.h1":"Services Complets de<br>Rénovation <em>Intérieure.</em>","services.sub":"Chaque projet est géré avec expertise technique, planification structurée et communication claire.","services.cta":"Vous avez un projet<br>en tête?","services.cta_btn":"Envoyer une Demande",
+    "svc.bath.title":"Rénovation Salle de Bain","svc.bath.short":"Transformations complètes de salles de bain, de la plomberie aux carreaux, de la ventilation au chauffage.","svc.bath.long":"Nous gérons des transformations complètes de salles de bain — des premières démolitions au dernier carreau.","svc.bath.tagline":"De la structure au carreau — entièrement géré.",
+    "svc.kit.title":"Rénovation Cuisine","svc.kit.short":"Travaux structurels et installations — plomberie, électricité, revêtements sol et mur.","svc.kit.long":"Nous préparons et rénovons les cuisines avec la précision structurelle qu'exigent les cuisines modernes.","svc.kit.tagline":"Alignement précis sur votre plan de conception.",
+    "svc.floor.title":"Sols & Finitions","svc.floor.short":"Stratifié, vinyle, plâtrage, plafonds en plâtre. Alignement parfait et résultats durables.","svc.floor.long":"Nous installons et finissons les sols et surfaces avec une attention méticuleuse à l'alignement et à la durabilité.","svc.floor.tagline":"Alignement parfait. Résultats durables.",
+    "svc.ins.title":"Isolation & Énergie","svc.ins.short":"Isolation intérieure, isolation combles et préparation chauffage pour plus de confort.","svc.ins.long":"Améliorez le confort de votre maison et réduisez les coûts énergétiques avec nos solutions d'isolation.","svc.ins.tagline":"Plus de confort. Moins de dépenses énergétiques.",
+    "svc.full.title":"Rénovation Complète","svc.full.short":"D'une seule pièce à des transformations complètes. Une entreprise. Un standard.","svc.full.long":"De la rénovation d'une pièce à la transformation complète. Nous coordonnons chaque phase — démolition, installations techniques, finitions.","svc.full.tagline":"Une entreprise. Un standard.",
+    "tag.demo":"Démolition & Préparation","tag.plumb":"Plomberie","tag.shower":"Douche & Sanitaire","tag.tile":"Carrelage & Étanchéité","tag.vent":"Ventilation","tag.heat":"Intégration Chauffage","tag.struct":"Ajustements Structurels","tag.elec":"Préparation Électrique","tag.floorwall":"Sol & Mur","tag.ceiling":"Travaux Plafond","tag.light":"Préparation Éclairage","tag.lam":"Sol Stratifié","tag.vinyl":"Sol Vinyle","tag.sub":"Préparation Sous-sol","tag.plaster":"Plâtrage Mural","tag.gypsum":"Plafonds Plâtre","tag.deco":"Finitions Décoratives","tag.intin":"Isolation Intérieure","tag.attic":"Isolation Combles","tag.heatprep":"Préparation Chauffage","tag.energy":"Optimisation Énergie","tag.tech":"Installations Techniques","tag.finish":"Finitions Intérieures","tag.detail":"Détails Finaux",
+    "projects.label":"Notre Travail","projects.h1":"Les Résultats Parlent<br><em>Plus Fort</em> que<br>les Promesses.","projects.sub":"Chaque projet reflète des finitions soignées, une précision structurelle et une attention aux détails.",
+    "projects.types.label":"Types de Projets","projects.types.title":"Ce que Nous <em>Réalisons.</em>","pt.apt":"Rénovations d'appartements","pt.apt.b":"Transformations intérieures complètes pour appartements de toutes tailles.","pt.house":"Maisons familiales","pt.house.b":"Améliorations intérieures ciblées pour maisons et habitations familiales.","pt.bath":"Transformations salles de bain","pt.bath.b":"Rénovations complètes de salles de bain, de la structure à la finition.","pt.energy":"Améliorations énergétiques","pt.energy.b":"Projets d'isolation et d'optimisation énergétique.","pt.floor":"Modernisation des sols","pt.floor.b":"Mise à niveau des sols dans des maisons entières.",
+    "projects.gallery.label":"Galerie","projects.gallery.title":"Avant & <em>Après</em>","gallery.note":"Ajoutez ici vos photos de projets pour présenter vos rénovations réalisées.",
+    "projects.commit.label":"Notre Engagement","projects.commit.title":"Chaque Rénovation,<br><em>Notre Standard.</em>","commit.l1":"Nous traitons chaque rénovation comme si c'était notre propre maison.","commit.l2":"Pas de raccourcis.","commit.l3":"Pas de finitions bâclées.","commit.l4":"Pas de compromis sur la qualité.",
+    "contact.label":"Contact","contact.h1":"Discutons de Votre<br><em>Rénovation.</em>","contact.intro":"Que vous planifiiez une rénovation complète ou l'amélioration d'un seul espace, nous sommes prêts à vous aider.","contact.info.label":"Coordonnées","contact.info.company_l":"Entreprise","contact.info.loc_l":"Localisation","contact.info.loc":"Belgique","contact.info.phone_l":"Téléphone / WhatsApp","contact.form.title":"Demander une Consultation","contact.form.sub":"Parlez-nous de votre projet et nous préparerons une proposition structurée.",
+    "form.fname":"Prénom","form.fname_ph":"Votre prénom","form.lname":"Nom","form.lname_ph":"Votre nom","form.email":"Adresse e-mail","form.phone":"Numéro de téléphone","form.space":"Quel espace rénovez-vous?","form.select":"Sélectionnez une option","form.size":"Surface (m²)","form.size_ph":"ex. 80 m²","form.timeline":"Délai souhaité","form.timeline_ph":"ex. 3 mois","form.budget":"Budget","form.b1":"Moins de 5.000","form.b2":"5.000 – 15.000","form.b3":"15.000 – 30.000","form.b4":"30.000 – 60.000","form.b5":"60.000+","form.details":"Détails supplémentaires","form.details_ph":"Dites-nous en plus sur votre projet...","form.other":"Autre","form.submit":"Envoyer la Demande","form.success":"Merci. Nous vous contacterons bientôt.",
+    "footer.nav":"Navigation","footer.contact":"Contact","footer.copy":"© 2025 Aldaco BV. Tous droits réservés.","footer.tagline2":"Rénovation Intérieure Belgique",
+    "ph.hero":"Photo Hero","ph.hero.tip":"Votre meilleur projet terminé — salle de bain, cuisine ou salon","ph.team":"Photo Équipe ou Chantier","ph.team.tip":"Équipe au travail ou chantier propre et organisé","ph.svc":"Photo Détail Service","ph.svc.tip":"Gros plan sur carreaux, sol, outils ou finition","ph.before":"Projet 1 — Avant","ph.after":"Projet 1 — Après","ph.before2":"Projet 2 — Avant","ph.after2":"Projet 2 — Après","ph.before3":"Projet 3 — Avant","ph.after3":"Projet 3 — Après","ph.before.tip":"Photo avant la rénovation","ph.after.tip":"Photo après la rénovation — même angle","ph.contact":"Photo d'Intérieur","ph.contact.tip":"Intérieur chaleureux et terminé — salon ou cuisine"
+  },
   en: {
-    "nav.home": "Home",
-    "nav.about": "About",
-    "nav.services": "Services",
-    "nav.projects": "Projects",
-    "nav.contact": "Contact",
-    "nav.cta": "Request a Quote",
-
-    "home.eyebrow": "Interior Renovation Belgium",
-    "home.h1": "Interior<br>Renovation,<br><em>Done Right.</em>",
-    "home.sub": "High-quality interior renovations in Belgium — designed with precision, executed with craftsmanship.",
-    "home.cta1": "Request a Free Consultation",
-    "home.cta2": "View Our Projects",
-    "home.stat": "Premium Finishes",
-    "home.who.label": "Who We Are",
-    "home.who.title": "Built on <em>Precision</em><br>& Craftsmanship.",
-    "home.who.body": "At Aldaco BV, we transform interiors into refined, functional and long-lasting living spaces. We specialise in complete interior renovations with premium finishes, precise detailing and efficient project execution.<br><br>Our mission is simple: Deliver high-end results without unnecessary complexity or inflated pricing.",
-    "home.who.tagline": "Comfort by Design.",
-    "home.who.c1": "Structured Approach",
-    "home.who.c2": "Clear Timelines",
-    "home.who.c3": "Premium Materials",
-    "home.who.c4": "Reliable Execution",
-    "home.svc.label": "Our Services",
-    "home.svc.title": "Everything Your<br><em>Interior Needs.</em>",
-    "home.svc.cta_text": "Ready to begin?",
-    "home.svc.cta_btn": "Get a Quote",
-    "home.why.label": "Why Aldaco BV",
-    "home.why.title": "The Aldaco<br><em>Difference.</em>",
-    "home.why.tagline": "We don\'t just renovate spaces.<br>We improve how you live in them.",
-    "home.why.i1": "Structured and professional approach to every project",
-    "home.why.i2": "Clear timelines and transparent pricing — no surprises",
-    "home.why.i3": "High-quality, durable materials carefully selected",
-    "home.why.i4": "Skilled European craftsmen with hands-on experience",
-    "home.why.i5": "Clean and organised worksites at all times",
-    "home.why.i6": "Reliable execution — delivered exactly as promised",
-    "home.proc.label": "Our Process",
-    "home.proc.title": "How We Work<br><em>With You.</em>",
-    "home.proc.s1t": "Consultation",
-    "home.proc.s1b": "We listen, measure and understand your needs before anything else.",
-    "home.proc.s2t": "Planning & Quotation",
-    "home.proc.s2b": "Clear scope, detailed pricing, no surprises. You know exactly what to expect.",
-    "home.proc.s3t": "Execution",
-    "home.proc.s3b": "Professional project management and high-quality craftsmanship throughout.",
-    "home.proc.s4t": "Delivery",
-    "home.proc.s4b": "Final inspection and quality check — only when everything is exactly right.",
-    "home.cta_strip": "Ready to renovate<br>your home?",
-    "home.cta_strip_btn": "Book Your Free Consultation",
-
-    "about.label": "About Aldaco BV",
-    "about.h1": "Raising the<br><em>Standard</em> of<br>Renovation.",
-    "about.intro": "Aldaco BV was founded with one goal: to raise the standard of interior renovation in Belgium. We combine technical precision, practical experience and structured project management to deliver renovations that last.",
-    "about.exp.label": "Our Expertise",
-    "about.exp.title": "What We<br><em>Specialise In.</em>",
-    "about.exp.body": "Our team brings strong hands-on experience across all key areas of interior renovation.",
-    "about.list.i1": "Bathroom installations",
-    "about.list.i2": "Structural interior adjustments",
-    "about.list.i3": "Flooring systems",
-    "about.list.i4": "Insulation solutions",
-    "about.list.i5": "Interior finishing and detailing",
-    "about.exp.footer": "We believe renovation should not be chaotic or stressful. It should be planned, executed and delivered professionally — every single time.",
-    "about.phil.label": "Our Philosophy",
-    "about.phil.title": "Three Values.<br><em>One Standard.</em>",
-    "about.phil.q.t": "Quality",
-    "about.phil.q.b": "We use durable materials and proven techniques. Every finish is executed to the highest standard — because that\'s what your home deserves.",
-    "about.phil.e.t": "Efficiency",
-    "about.phil.e.b": "We respect timelines and organise projects correctly from day one. No delays, no confusion — just structured delivery.",
-    "about.phil.tr.t": "Transparency",
-    "about.phil.tr.b": "Clear pricing, clear agreements, clear communication. You\'ll always know exactly where your project stands.",
-    "about.vis.label": "Our Vision",
-    "about.vis.title": "A Trusted Name<br>Across <em>Belgium.</em>",
-    "about.vis.body": "To become the go-to partner for premium interior renovations across Belgium by delivering results that speak for themselves.",
-    "about.vis.i1": "Reliable execution on every project",
-    "about.vis.i2": "High-end finishes that stand the test of time",
-    "about.vis.i3": "Fair and transparent pricing, always",
-    "about.vis.i4": "Strong, lasting client relationships",
-    "about.cta": "Let\'s work together on<br>your renovation.",
-    "about.cta_btn": "Get in Touch",
-
-    "services.label": "Services",
-    "services.h1": "Complete Interior<br>Renovation <em>Services.</em>",
-    "services.sub": "Every project is handled with technical expertise, structured planning and clear communication.",
-    "services.cta": "Have a project<br>in mind?",
-    "services.cta_btn": "Send an Inquiry",
-
-    "svc.bath.title": "Bathroom Renovation",
-    "svc.bath.short": "Complete bathroom transformations from plumbing to tiling, ventilation to heating integration.",
-    "svc.bath.long": "We handle complete bathroom transformations — from the very first demolition to the final tile. Every element is managed and executed professionally, so you get a space that functions flawlessly.",
-    "svc.bath.tagline": "From joists to tiles — fully managed.",
-    "svc.kit.title": "Kitchen Renovation",
-    "svc.kit.short": "Structural & installation works — plumbing, electrical, floor & wall finishing, lighting preparation.",
-    "svc.kit.long": "We prepare and renovate kitchen spaces with the structural precision and technical readiness that modern kitchens demand. Clean execution and precise alignment with your design plan, always.",
-    "svc.kit.tagline": "Precise alignment with your design plan.",
-    "svc.floor.title": "Flooring & Finishing",
-    "svc.floor.short": "Laminate, vinyl, plastering, gypsum ceilings. Perfect alignment and long-lasting results.",
-    "svc.floor.long": "We install and finish flooring and surfaces with meticulous attention to alignment, transitions and long-term durability. Whether laminate, vinyl or plaster — the result is seamless.",
-    "svc.floor.tagline": "Perfect alignment. Long-lasting results.",
-    "svc.ins.title": "Insulation & Energy",
-    "svc.ins.short": "Interior insulation, attic insulation and heating preparation for better comfort and lower costs.",
-    "svc.ins.long": "Improve your home\'s comfort and reduce energy costs with our insulation and energy improvement solutions. We optimise from inside out — walls, attics and heating systems.",
-    "svc.ins.tagline": "Better comfort. Lower energy costs.",
-    "svc.full.title": "Full Interior Renovation",
-    "svc.full.short": "From single-room upgrades to complete home transformations. One company. One standard.",
-    "svc.full.long": "From single-room upgrades to complete home transformations. We coordinate every phase under one roof — demolition, technical installations, finishing and final detailing. One company. One responsibility. One standard of quality.",
-    "svc.full.tagline": "One company. One standard.",
-
-    "tag.demo": "Demolition & Prep", "tag.plumb": "Plumbing", "tag.shower": "Shower & Sanitary",
-    "tag.tile": "Tiling & Waterproofing", "tag.vent": "Ventilation", "tag.heat": "Heating Integration",
-    "tag.struct": "Structural Adjustments", "tag.elec": "Electrical Preparation",
-    "tag.floorwall": "Floor & Wall Finishing", "tag.ceiling": "Ceiling Works", "tag.light": "Lighting Preparation",
-    "tag.lam": "Laminate Flooring", "tag.vinyl": "Vinyl Flooring", "tag.sub": "Subfloor Preparation",
-    "tag.plaster": "Wall Plastering", "tag.gypsum": "Gypsum Ceilings", "tag.deco": "Decorative Finishes",
-    "tag.intin": "Interior Insulation", "tag.attic": "Attic Insulation", "tag.heatprep": "Heating System Prep",
-    "tag.energy": "Energy Optimisation", "tag.tech": "Technical Installations",
-    "tag.finish": "Interior Finishing", "tag.detail": "Final Detailing",
-
-    "projects.label": "Our Work",
-    "projects.h1": "Results Speak<br><em>Louder</em> Than<br>Promises.",
-    "projects.sub": "Every project reflects clean finishing, structural precision, durable installations and attention to detail.",
-    "projects.types.label": "Project Types",
-    "projects.types.title": "What We <em>Deliver.</em>",
-    "pt.apt": "Apartment Renovations", "pt.apt.b": "Complete interior transformations for apartments of all sizes.",
-    "pt.house": "Family Home Upgrades", "pt.house.b": "Targeted interior improvements for houses and family homes.",
-    "pt.bath": "Bathroom Transformations", "pt.bath.b": "Full bathroom overhauls from structure to final finish.",
-    "pt.energy": "Energy Improvements", "pt.energy.b": "Insulation and energy optimisation projects for modern living.",
-    "pt.floor": "Flooring Modernisation", "pt.floor.b": "Upgrading floors across entire homes with lasting precision.",
-    "projects.gallery.label": "Gallery",
-    "projects.gallery.title": "Before & <em>After</em>",
-    "gallery.soon": "Project Photos Coming Soon",
-    "gallery.ba": "Before & After Gallery",
-    "gallery.floor": "Flooring Projects",
-    "gallery.note": "Add your project photos here to showcase your completed renovations.",
-    "projects.commit.label": "Our Commitment",
-    "projects.commit.title": "Every Renovation,<br><em>Our Standard.</em>",
-    "commit.l1": "We treat every renovation as if it were our own home.",
-    "commit.l2": "No shortcuts.",
-    "commit.l3": "No rushed finishing.",
-    "commit.l4": "No compromises on quality.",
-
-    "contact.label": "Contact",
-    "contact.h1": "Let\'s Discuss Your<br><em>Renovation.</em>",
-    "contact.intro": "Whether you\'re planning a full home renovation or upgrading a single space, we are ready to help. Tell us about your project and we\'ll come back to you with a structured proposal and clear next steps.",
-    "contact.info.label": "Contact Information",
-    "contact.info.company_l": "Company",
-    "contact.info.loc_l": "Location",
-    "contact.info.loc": "Belgium",
-    "contact.info.phone_l": "Phone / WhatsApp",
-    "contact.form.title": "Request a Consultation",
-    "contact.form.sub": "Tell us about your project and we\'ll prepare a structured proposal.",
-    "form.fname": "First Name", "form.fname_ph": "Your first name",
-    "form.lname": "Last Name", "form.lname_ph": "Your last name",
-    "form.email": "Email Address", "form.phone": "Phone Number",
-    "form.space": "What space are you renovating?", "form.select": "Select an option",
-    "form.size": "Approximate Size (m²)", "form.size_ph": "e.g. 80 m²",
-    "form.timeline": "Desired Timeline", "form.timeline_ph": "e.g. 3 months",
-    "form.budget": "Budget Range",
-    "form.b1": "Under 5,000", "form.b2": "5,000 – 15,000", "form.b3": "15,000 – 30,000",
-    "form.b4": "30,000 – 60,000", "form.b5": "60,000+",
-    "form.details": "Additional Details", "form.details_ph": "Tell us more about your project...",
-    "form.other": "Other",
-    "form.submit": "Send Inquiry",
-    "form.success": "Thank you. We\'ll be in touch soon.",
-
-    "footer.nav": "Navigation",
-    "footer.contact": "Contact",
-    "footer.copy": "© 2025 Aldaco BV. All rights reserved.",
-    "footer.tagline2": "Interior Renovation Belgium"
+    "nav.home":"Home","nav.about":"About","nav.services":"Services","nav.projects":"Projects","nav.contact":"Contact","nav.cta":"Request a Quote",
+    "home.eyebrow":"Interior Renovation Belgium","home.h1":"Interior<br>Renovation,<br><em>Done Right.</em>","home.sub":"High-quality interior renovations in Belgium — designed with precision, executed with craftsmanship.","home.cta1":"Request a Free Consultation","home.cta2":"View Our Projects","home.stat":"Premium Finishes",
+    "home.who.label":"Who We Are","home.who.title":"Built on <em>Precision</em><br>& Craftsmanship.","home.who.body":"At Aldaco BV, we transform interiors into refined, functional and long-lasting living spaces. We specialise in complete interior renovations with premium finishes, precise detailing and efficient project execution.<br><br>Our mission is simple: deliver high-end results without unnecessary complexity or inflated pricing.","home.who.tagline":"Comfort by Design.",
+    "home.who.c1":"Structured Approach","home.who.c2":"Clear Timelines","home.who.c3":"Premium Materials","home.who.c4":"Reliable Execution",
+    "home.svc.label":"Our Services","home.svc.title":"Everything Your<br><em>Interior Needs.</em>","home.svc.cta_text":"Ready to begin?","home.svc.cta_btn":"Get a Quote",
+    "home.why.label":"Why Aldaco BV","home.why.title":"The Aldaco<br><em>Difference.</em>","home.why.tagline":"We don't just renovate spaces.<br>We improve how you live in them.","home.why.i1":"Structured and professional approach to every project","home.why.i2":"Clear timelines and transparent pricing — no surprises","home.why.i3":"High-quality, durable materials carefully selected","home.why.i4":"Skilled European craftsmen with hands-on experience","home.why.i5":"Clean and organised worksites at all times","home.why.i6":"Reliable execution — delivered exactly as promised",
+    "home.proc.label":"Our Process","home.proc.title":"How We Work<br><em>With You.</em>","home.proc.s1t":"Consultation","home.proc.s1b":"We listen, measure and understand your needs before anything else.","home.proc.s2t":"Planning & Quotation","home.proc.s2b":"Clear scope, detailed pricing, no surprises.","home.proc.s3t":"Execution","home.proc.s3b":"Professional project management and high-quality craftsmanship throughout.","home.proc.s4t":"Delivery","home.proc.s4b":"Final inspection and quality check — only when everything is exactly right.",
+    "home.cta_strip":"Ready to renovate<br>your home?","home.cta_strip_btn":"Book Your Free Consultation",
+    "about.label":"About Aldaco BV","about.h1":"Raising the<br><em>Standard</em> of<br>Renovation.","about.intro":"Aldaco BV was founded with one goal: to raise the standard of interior renovation in Belgium. We combine technical precision, practical experience and structured project management to deliver renovations that last.",
+    "about.exp.label":"Our Expertise","about.exp.title":"What We<br><em>Specialise In.</em>","about.exp.body":"Our team brings strong hands-on experience across all key areas of interior renovation.",
+    "about.list.i1":"Bathroom installations","about.list.i2":"Structural interior adjustments","about.list.i3":"Flooring systems","about.list.i4":"Insulation solutions","about.list.i5":"Interior finishing and detailing",
+    "about.exp.footer":"We believe renovation should not be chaotic or stressful. It should be planned, executed and delivered professionally — every single time.",
+    "about.phil.label":"Our Philosophy","about.phil.title":"Three Values.<br><em>One Standard.</em>","about.phil.q.t":"Quality","about.phil.q.b":"We use durable materials and proven techniques. Every finish is executed to the highest standard.","about.phil.e.t":"Efficiency","about.phil.e.b":"We respect timelines and organise projects correctly from day one. No delays, no confusion.","about.phil.tr.t":"Transparency","about.phil.tr.b":"Clear pricing, clear agreements, clear communication.",
+    "about.vis.label":"Our Vision","about.vis.title":"A Trusted Name<br>Across <em>Belgium.</em>","about.vis.body":"To become the go-to partner for premium interior renovations across Belgium.","about.vis.i1":"Reliable execution on every project","about.vis.i2":"High-end finishes that stand the test of time","about.vis.i3":"Fair and transparent pricing, always","about.vis.i4":"Strong, lasting client relationships",
+    "about.cta":"Let's work together on<br>your renovation.","about.cta_btn":"Get in Touch",
+    "services.label":"Services","services.h1":"Complete Interior<br>Renovation <em>Services.</em>","services.sub":"Every project is handled with technical expertise, structured planning and clear communication.","services.cta":"Have a project<br>in mind?","services.cta_btn":"Send an Inquiry",
+    "svc.bath.title":"Bathroom Renovation","svc.bath.short":"Complete bathroom transformations from plumbing to tiling, ventilation to heating integration.","svc.bath.long":"We handle complete bathroom transformations — from the very first demolition to the final tile.","svc.bath.tagline":"From joists to tiles — fully managed.",
+    "svc.kit.title":"Kitchen Renovation","svc.kit.short":"Structural & installation works — plumbing, electrical, floor & wall finishing.","svc.kit.long":"We prepare and renovate kitchen spaces with the structural precision that modern kitchens demand.","svc.kit.tagline":"Precise alignment with your design plan.",
+    "svc.floor.title":"Flooring & Finishing","svc.floor.short":"Laminate, vinyl, plastering, gypsum ceilings. Perfect alignment and long-lasting results.","svc.floor.long":"We install and finish flooring and surfaces with meticulous attention to alignment, transitions and durability.","svc.floor.tagline":"Perfect alignment. Long-lasting results.",
+    "svc.ins.title":"Insulation & Energy","svc.ins.short":"Interior insulation, attic insulation and heating preparation for better comfort.","svc.ins.long":"Improve your home's comfort and reduce energy costs with our insulation and energy improvement solutions.","svc.ins.tagline":"Better comfort. Lower energy costs.",
+    "svc.full.title":"Full Interior Renovation","svc.full.short":"From single-room upgrades to complete home transformations. One company. One standard.","svc.full.long":"From single-room upgrades to complete home transformations. We coordinate every phase — demolition, installations, finishing and final detailing.","svc.full.tagline":"One company. One standard.",
+    "tag.demo":"Demolition & Prep","tag.plumb":"Plumbing","tag.shower":"Shower & Sanitary","tag.tile":"Tiling & Waterproofing","tag.vent":"Ventilation","tag.heat":"Heating Integration","tag.struct":"Structural Adjustments","tag.elec":"Electrical Preparation","tag.floorwall":"Floor & Wall Finishing","tag.ceiling":"Ceiling Works","tag.light":"Lighting Preparation","tag.lam":"Laminate Flooring","tag.vinyl":"Vinyl Flooring","tag.sub":"Subfloor Preparation","tag.plaster":"Wall Plastering","tag.gypsum":"Gypsum Ceilings","tag.deco":"Decorative Finishes","tag.intin":"Interior Insulation","tag.attic":"Attic Insulation","tag.heatprep":"Heating System Prep","tag.energy":"Energy Optimisation","tag.tech":"Technical Installations","tag.finish":"Interior Finishing","tag.detail":"Final Detailing",
+    "projects.label":"Our Work","projects.h1":"Results Speak<br><em>Louder</em> Than<br>Promises.","projects.sub":"Every project reflects clean finishing, structural precision, durable installations and attention to detail.",
+    "projects.types.label":"Project Types","projects.types.title":"What We <em>Deliver.</em>","pt.apt":"Apartment Renovations","pt.apt.b":"Complete interior transformations for apartments of all sizes.","pt.house":"Family Home Upgrades","pt.house.b":"Targeted interior improvements for houses and family homes.","pt.bath":"Bathroom Transformations","pt.bath.b":"Full bathroom overhauls from structure to final finish.","pt.energy":"Energy Improvements","pt.energy.b":"Insulation and energy optimisation projects for modern living.","pt.floor":"Flooring Modernisation","pt.floor.b":"Upgrading floors across entire homes with lasting precision.",
+    "projects.gallery.label":"Gallery","projects.gallery.title":"Before & <em>After</em>","gallery.note":"Add your project photos here to showcase your completed renovations.",
+    "projects.commit.label":"Our Commitment","projects.commit.title":"Every Renovation,<br><em>Our Standard.</em>","commit.l1":"We treat every renovation as if it were our own home.","commit.l2":"No shortcuts.","commit.l3":"No rushed finishing.","commit.l4":"No compromises on quality.",
+    "contact.label":"Contact","contact.h1":"Let's Discuss Your<br><em>Renovation.</em>","contact.intro":"Whether you're planning a full home renovation or upgrading a single space, we are ready to help.","contact.info.label":"Contact Information","contact.info.company_l":"Company","contact.info.loc_l":"Location","contact.info.loc":"Belgium","contact.info.phone_l":"Phone / WhatsApp","contact.form.title":"Request a Consultation","contact.form.sub":"Tell us about your project and we'll prepare a structured proposal.",
+    "form.fname":"First Name","form.fname_ph":"Your first name","form.lname":"Last Name","form.lname_ph":"Your last name","form.email":"Email Address","form.phone":"Phone Number","form.space":"What space are you renovating?","form.select":"Select an option","form.size":"Approximate Size (m²)","form.size_ph":"e.g. 80 m²","form.timeline":"Desired Timeline","form.timeline_ph":"e.g. 3 months","form.budget":"Budget Range","form.b1":"Under 5,000","form.b2":"5,000 – 15,000","form.b3":"15,000 – 30,000","form.b4":"30,000 – 60,000","form.b5":"60,000+","form.details":"Additional Details","form.details_ph":"Tell us more about your project...","form.other":"Other","form.submit":"Send Inquiry","form.success":"Thank you. We'll be in touch soon.",
+    "footer.nav":"Navigation","footer.contact":"Contact","footer.copy":"© 2025 Aldaco BV. All rights reserved.","footer.tagline2":"Interior Renovation Belgium",
+    "ph.hero":"Hero Photo","ph.hero.tip":"Your best finished project — bathroom, kitchen or living room","ph.team":"Team or Worksite Photo","ph.team.tip":"Team at work or a clean, organised worksite","ph.svc":"Service Detail Photo","ph.svc.tip":"Close-up of tiles, flooring, tools or finishing","ph.before":"Project 1 — Before","ph.after":"Project 1 — After","ph.before2":"Project 2 — Before","ph.after2":"Project 2 — After","ph.before3":"Project 3 — Before","ph.after3":"Project 3 — After","ph.before.tip":"Photo before the renovation","ph.after.tip":"Photo after the renovation — same angle","ph.contact":"Interior Atmosphere Photo","ph.contact.tip":"Warm, finished interior — living room or kitchen"
   }
 };
 
-/* =====================================================
-   CORE FUNCTIONS
-   ===================================================== */
-var currentLang = 'nl';
+/* ── CORE ── */
+var lang = 'nl';
 
-function t(key) {
-  return (translations[currentLang] && translations[currentLang][key]) || key;
-}
+function t(k) { return (T[lang] && T[lang][k]) || k; }
 
-function applyTranslations() {
-  // Text content
+function applyLang() {
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
-    var key = el.getAttribute('data-i18n');
-    var val = t(key);
-    if (val) el.innerHTML = val;
+    var v = t(el.getAttribute('data-i18n'));
+    if (v) el.innerHTML = v;
   });
-  // Placeholders
   document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
-    var key = el.getAttribute('data-i18n-ph');
-    var val = t(key);
-    if (val) el.setAttribute('placeholder', val);
+    var v = t(el.getAttribute('data-i18n-ph'));
+    if (v) el.setAttribute('placeholder', v);
   });
-  // HTML lang attribute
-  document.documentElement.lang = currentLang;
-  // Page title
-  var titles = {
-    nl: 'Interieur Renovatie België | Aldaco BV',
-    fr: 'Rénovation Intérieure Belgique | Aldaco BV',
-    en: 'Interior Renovation Belgium | Aldaco BV'
-  };
-  document.title = titles[currentLang] || titles.nl;
+  document.documentElement.lang = lang;
+  var titles = { nl:'Interieur Renovatie België | Aldaco BV', fr:'Rénovation Intérieure Belgique | Aldaco BV', en:'Interior Renovation Belgium | Aldaco BV' };
+  document.title = titles[lang];
 }
 
-function setLang(lang) {
-  currentLang = lang;
-  ['nl','fr','en'].forEach(function(l) {
-    var desktop = document.getElementById('btn-' + l);
-    var mobile = document.getElementById('mobile-btn-' + l);
-    if (desktop) desktop.classList.toggle('active', lang === l);
-    if (mobile) mobile.classList.toggle('active', lang === l);
+function setLang(l) {
+  lang = l;
+  ['nl','fr','en'].forEach(function(x) {
+    var d = document.getElementById('btn-' + x);
+    var m = document.getElementById('mobile-btn-' + x);
+    if (d) d.classList.toggle('active', l === x);
+    if (m) m.classList.toggle('active', l === x);
   });
-  applyTranslations();
+  applyLang();
 }
 
 function showPage(id) {
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-  var target = document.getElementById('page-' + id);
-  if (target) target.classList.add('active');
+  var pg = document.getElementById('page-' + id);
+  if (pg) pg.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* =====================================================
-   MOBILE MENU
-   ===================================================== */
-var navToggle = document.getElementById('navToggle');
-var mobileMenu = document.getElementById('mobileMenu');
-
-navToggle.addEventListener('click', function() {
-  if (mobileMenu.classList.contains('open')) {
-    closeMobileMenu();
-  } else {
-    mobileMenu.classList.add('open');
-    navToggle.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-});
-
 function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-  navToggle.classList.remove('open');
+  var t = document.getElementById('navToggle');
+  var m = document.getElementById('mobileMenu');
+  if (m) m.classList.remove('open');
+  if (t) t.classList.remove('open');
   document.body.style.overflow = '';
 }
 
-/* =====================================================
-   SCROLL SHRINK NAV
-   ===================================================== */
-window.addEventListener('scroll', function() {
-  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
-});
-
-/* =====================================================
-   CONTACT FORM
-   ===================================================== */
-var form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    form.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
+/* ── DOM READY ── */
+document.addEventListener('DOMContentLoaded', function() {
+  /* Hamburger */
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      var open = menu.classList.contains('open');
+      if (open) {
+        closeMobileMenu();
+      } else {
+        menu.classList.add('open');
+        toggle.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+  /* Scroll */
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('mainNav');
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
   });
-}
-
-/* =====================================================
-   INIT
-   ===================================================== */
-applyTranslations(); // Dutch is default on load
+  /* Form */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      var s = document.getElementById('formSuccess');
+      if (s) s.classList.add('show');
+    });
+  }
+  /* Default language */
+  applyLang();
+});
 </script>
 
 </body>
